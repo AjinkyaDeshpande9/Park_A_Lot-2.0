@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_mobile_registration.xml" value="0.22" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_registration.xml" value="0.33" />
+        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
+        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_mobile_registration.xml" value="0.264" />
+        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_registration.xml" value="0.264" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_mobile_registration.xml" value="0.18645833333333334" />
       </map>
     </option>
   </component>
