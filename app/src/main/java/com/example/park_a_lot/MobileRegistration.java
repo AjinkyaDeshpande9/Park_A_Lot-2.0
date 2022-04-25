@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MobileRegistration extends AppCompatActivity {
     private Button verifyOTPBtn, generateOTPBtn;
     TextView mResend;
+    EditText regPhone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,7 @@ public class MobileRegistration extends AppCompatActivity {
         verifyOTPBtn = findViewById(R.id.regVerifybutton);
         generateOTPBtn = findViewById(R.id.regsendotp);
         mResend = findViewById(R.id.regResendOtp);
+        regPhone = findViewById(R.id.regmob);
 
         generateOTPBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +36,11 @@ public class MobileRegistration extends AppCompatActivity {
         verifyOTPBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MobileRegistration.this,Registration.class));
+                String SendPhone = regPhone.getText().toString();
+//                startActivity(new Intent(MobileRegistration.this,Registration.class));
+                Intent i = new Intent(getApplicationContext(), Registration.class);
+                i.putExtra("UserPhone",SendPhone);
+                startActivity(i);
             }
         });
 
