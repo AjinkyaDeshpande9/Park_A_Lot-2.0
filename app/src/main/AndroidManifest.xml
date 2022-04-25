@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ParkALot">
         <activity
+            android:name=".NavBar"
+            android:exported="false"
+            android:label="@string/title_activity_nav_bar"
+            android:theme="@style/Theme.ParkALot.NoActionBar" />
+        <activity
             android:name=".Registration"
             android:exported="false" />
         <activity

@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">Park-A-Lot</string>
     <string name="default_web_client_id1" translatable="false">124150744001-aa9e5g47cu2khmh7nf8ok2r0gh52fed7.apps.googleusercontent.com</string>
+    <string name="title_activity_navigation">Navigation</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_dashboard">Dashboard</string>
+    <string name="menu_aboutus">About Us</string>
+    <string name="menu_logout">Logout</string>
+    <string name="title_activity_nav_bar">NavBar</string>
 </resources>

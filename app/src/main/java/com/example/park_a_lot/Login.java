@@ -54,7 +54,7 @@ public class Login extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = mAuth.getCurrentUser();
        if(user!=null){
-           Intent intent = new Intent(getApplicationContext(),dummy.class); // CHANGE TO PROFILE PAGE
+           Intent intent = new Intent(getApplicationContext(),NavBar.class); // CHANGE TO PROFILE PAGE
            startActivity(intent);
     }
     }
@@ -115,7 +115,7 @@ public class Login extends AppCompatActivity {
                         final String getPassword = snapshot.child(mobile).child("upassword").getValue(String.class);
                         if (getPassword.equals(password)) {
                             Toast.makeText(Login.this, "Welcome back! ", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(Login.this,dummy.class));
+                            startActivity(new Intent(Login.this,NavBar.class));
                         }
                         else{
                             Toast.makeText(Login.this, "Wrong Password! ", Toast.LENGTH_SHORT).show();
@@ -174,7 +174,7 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(getApplicationContext(),dummy.class); // CHANGE TO PROFILE PAGE
+                            Intent intent = new Intent(getApplicationContext(),NavBar.class); // CHANGE TO PROFILE PAGE
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.

@@ -66,6 +66,8 @@
         android:id="@+id/regotp"
         android:layout_width="297dp"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/password_icon"
+        android:drawablePadding="5dp"
         android:ems="10"
         android:fontFamily="@font/roboto"
         android:hint="Enter OTP"
@@ -119,5 +121,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/regVerifybutton"
         app:layout_constraintVertical_bias="0.07" />
+    <TextView
+        android:id="@+id/regloginHere"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="84dp"
+        android:clickable="true"
+        android:fontFamily="@font/roboto"
+        android:text=" Login Here"
+        android:textColor="#0D1723"
+        android:textSize="12dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="84dp"
+        android:fontFamily="@font/roboto"
+        android:text="Already have an Account?"
+        android:textColor="#3A506A"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

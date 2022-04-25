@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -17,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Registration extends AppCompatActivity {
     private Button Submit;
+    TextView Relogin;
     EditText regName,regEmail,regPassword,regVecnumber, regConpassword;
     RadioGroup radioGroup;
     RadioButton radioButton;
@@ -33,7 +35,15 @@ public class Registration extends AppCompatActivity {
         regVecnumber = findViewById(R.id.regVecNumber);
         regConpassword= findViewById(R.id.regConPassword);
         radioGroup = findViewById(R.id.radioGroup);
+        Relogin = findViewById(R.id.regloginHere);
 
+
+        Relogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Login.class));
+            }
+        });
 
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,3 +99,5 @@ public class Registration extends AppCompatActivity {
         Toast.makeText(Registration.this, "\t\t\t\t\t\t\t\tRegistration Successful!\nYou can now Login with these Credentials ", Toast.LENGTH_LONG).show();
     }
 }
+
+

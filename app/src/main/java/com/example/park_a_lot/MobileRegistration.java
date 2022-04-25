@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class MobileRegistration extends AppCompatActivity {
     private Button verifyOTPBtn, generateOTPBtn;
-    TextView mResend;
+    TextView mResend,Relogin;
     EditText regPhone;
 
     @Override
@@ -24,6 +24,15 @@ public class MobileRegistration extends AppCompatActivity {
         generateOTPBtn = findViewById(R.id.regsendotp);
         mResend = findViewById(R.id.regResendOtp);
         regPhone = findViewById(R.id.regmob);
+        Relogin = findViewById(R.id.regloginHere);
+
+
+        Relogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Login.class));
+            }
+        });
 
         generateOTPBtn.setOnClickListener(new View.OnClickListener() {
             @Override
