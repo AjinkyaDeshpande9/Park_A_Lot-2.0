@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="135dp"
-        android:layout_height="133dp"
+        android:layout_width="170dp"
+        android:layout_height="164dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,54 +88,6 @@
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
-    <RadioButton
-        android:id="@+id/reg4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_weight="1"
-        android:fontFamily="@font/roboto"
-        android:text="4 Wheeler"
-        android:textColor="#0D1723"
-        android:textColorLink="#0D1723"
-        app:layout_constraintBottom_toTopOf="@+id/regSubmitbutton"
-        app:layout_constraintEnd_toStartOf="@+id/regOther"
-        app:layout_constraintTop_toBottomOf="@+id/regVecText"
-        app:layout_constraintVertical_bias="0.216" />
-
-    <RadioButton
-        android:id="@+id/regOther"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="56dp"
-        android:layout_weight="1"
-        android:fontFamily="@font/roboto"
-        android:text="Other"
-        android:textColor="#0D1723"
-        android:textColorLink="#0D1723"
-        app:layout_constraintBottom_toTopOf="@+id/regSubmitbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regVecText"
-        app:layout_constraintVertical_bias="0.216" />
-
-    <RadioButton
-        android:id="@+id/reg2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:checked="false"
-        android:fontFamily="@font/roboto"
-        android:text="2 Wheeler"
-        android:textAlignment="center"
-        android:textColor="#0D1723"
-        android:textColorLink="#0D1723"
-        app:layout_constraintBottom_toTopOf="@+id/regSubmitbutton"
-        app:layout_constraintEnd_toStartOf="@+id/reg4"
-        app:layout_constraintHorizontal_bias="0.759"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regVecText"
-        app:layout_constraintVertical_bias="0.216" />
-
     <ImageView
         android:id="@+id/forVectype"
         android:layout_width="23dp"
@@ -143,7 +95,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toTopOf="@+id/regSubmitbutton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.19"
+        app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/regVecNumber"
         app:layout_constraintVertical_bias="0.0"
@@ -154,7 +106,7 @@
         android:id="@+id/regName"
         android:layout_width="297dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="18dp"
         android:backgroundTint="#0D1723"
         android:drawableLeft="@drawable/user_icon"
         android:drawablePadding="5dp"
@@ -217,10 +169,44 @@
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:minWidth="297dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="63dp"
-        tools:layout_editor_absoluteY="484dp"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regVecText">
+
+        <RadioButton
+            android:id="@+id/reg2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:checked="false"
+            android:fontFamily="@font/roboto"
+            android:text="2 Wheeler"
+            android:textAlignment="center"
+            android:textColor="#0D1723"
+            android:textColorLink="#0D1723" />
+
+        <RadioButton
+            android:id="@+id/reg4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto"
+            android:text="4 Wheeler"
+            android:textColor="#0D1723"
+            android:textColorLink="#0D1723" />
+
+        <RadioButton
+            android:id="@+id/regOther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto"
+            android:text="Other"
+            android:textColor="#0D1723"
+            android:textColorLink="#0D1723" />
 
     </RadioGroup>
 
