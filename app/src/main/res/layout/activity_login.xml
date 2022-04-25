@@ -30,7 +30,7 @@
         android:drawablePadding="5dp"
         android:ems="10"
         android:fontFamily="@font/roboto"
-        android:hint="Email / Phone Number"
+        android:hint="Phone Number"
         android:inputType="textPersonName"
         android:textColorHighlight="#0D1723"
         android:textColorHint="#B4BAC1"

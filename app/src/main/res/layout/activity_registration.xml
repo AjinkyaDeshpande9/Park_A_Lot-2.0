@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="170dp"
-        android:layout_height="164dp"
+        android:layout_width="69dp"
+        android:layout_height="58dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -167,6 +167,7 @@
         app:layout_constraintTop_toBottomOf="@+id/regConPassword" />
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -181,7 +182,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:checked="false"
+            android:checked="true"
             android:fontFamily="@font/roboto"
             android:text="2 Wheeler"
             android:textAlignment="center"

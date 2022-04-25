@@ -8,12 +8,19 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Registration extends AppCompatActivity {
     private Button Submit;
     EditText regName,regEmail,regPassword,regVecnumber, regConpassword;
-    String regVectype;
+    RadioGroup radioGroup;
+    RadioButton radioButton;
+    String userPhone, userName, userEmail,userPassword,userConfirmpassword,userVecnumber, userRegvectype;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,21 +32,24 @@ public class Registration extends AppCompatActivity {
         regPassword = findViewById(R.id.regPassword);
         regVecnumber = findViewById(R.id.regVecNumber);
         regConpassword= findViewById(R.id.regConPassword);
+        radioGroup = findViewById(R.id.radioGroup);
 
 
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 //Getting all user values to prepare them for database entry
                 Intent i = getIntent();
-                String UserPhone = i.getStringExtra("UserPhone");
-                String userName = regName.getText().toString();
-                String userEmail = regEmail.getText().toString();
-                String userPassword = regPassword.getText().toString();
-                String userConfirmpassword = regConpassword.getText().toString();
-                String userVecnumber = regVecnumber.getText().toString();
+                userPhone = i.getStringExtra("UserPhone");
+                userName = regName.getText().toString();
+                userEmail = regEmail.getText().toString();
+                userPassword = regPassword.getText().toString();
+                userConfirmpassword = regConpassword.getText().toString();
+                userVecnumber = regVecnumber.getText().toString();
+
+                int radioId = radioGroup.getCheckedRadioButtonId();
+                radioButton = findViewById(radioId);
+                userRegvectype = radioButton.getText().toString();
 
 
                 //String Validating Conditions
@@ -55,13 +65,9 @@ public class Registration extends AppCompatActivity {
                 else
                 {
                     if(userPassword.equals(userConfirmpassword)){
-                        System.out.println("User phone number is:"+UserPhone);
-                        System.out.println("User entered name is:"+userName);
-                        System.out.println("User entered email is:"+userEmail);
-                        System.out.println("User entered password is:"+userPassword);
-                        System.out.println("User entered vecnumber is:"+userVecnumber);
-                        startActivity(new Intent(Registration.this,dummy.class));
-                        //progressBar.setVisibility(View.VISIBLE);
+                        //If Everything is in constraints we initiate the process of adding this user
+                          storeNewUsersData();
+                          startActivity(new Intent(Registration.this,Login.class));
                     }
                     else{
                         regConpassword.setError("Password does not match.");
@@ -73,5 +79,13 @@ public class Registration extends AppCompatActivity {
         });
 
 
+    }
+//Storing Users in Firebase
+    private void storeNewUsersData() {
+        FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
+        DatabaseReference reference = rootNode.getReference("Users");
+        UserHelperClass addNewUser = new UserHelperClass(userName,userEmail,userPassword,userPhone,userVecnumber,userRegvectype);
+        reference.child(userPhone).setValue(addNewUser);
+        Toast.makeText(Registration.this, "\t\t\t\t\t\t\t\tRegistration Successful!\nYou can now Login with these Credentials ", Toast.LENGTH_LONG).show();
     }
 }

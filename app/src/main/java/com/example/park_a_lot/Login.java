@@ -45,7 +45,7 @@ public class Login extends AppCompatActivity {
     private final static  int RC_SIGN_IN = 123;
     private FirebaseAuth mAuth;
 
-    private EditText editTextEmail, editTextPassword;
+    private EditText editTextMobile, editTextPassword;
     private Button signIn;
 
 
@@ -69,9 +69,9 @@ public class Login extends AppCompatActivity {
         mRegister = findViewById(R.id.RegisterHere);
 
         //login
-        signIn =(Button) findViewById(R.id.Loginbutton);
-        editTextEmail=(EditText) findViewById(R.id.logName);
-        editTextPassword= (EditText) findViewById(R.id.logPassword) ;
+        signIn =findViewById(R.id.Loginbutton);
+        editTextMobile=findViewById(R.id.logName);
+        editTextPassword=findViewById(R.id.logPassword) ;
 
 
         //Google Register
@@ -100,20 +100,19 @@ public class Login extends AppCompatActivity {
     }
 
     private void userLogin() {
-        String email = editTextEmail.getText().toString().trim();
+        String mobile = editTextMobile.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
-        if(email.isEmpty() || password.isEmpty()){
+        if(mobile.isEmpty() || password.isEmpty()){
             Toast.makeText(Login.this, "Mobile No and Password are required ", Toast.LENGTH_SHORT).show();
-            return;
         }
         else
         {
             databaseReference.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if(snapshot.hasChild(email)) {
-                        final String getPassword = snapshot.child(email).child("password").getValue(String.class);
+                    if(snapshot.hasChild(mobile)) {
+                        final String getPassword = snapshot.child(mobile).child("upassword").getValue(String.class);
                         if (getPassword.equals(password)) {
                             Toast.makeText(Login.this, "Welcome back! ", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(Login.this,dummy.class));

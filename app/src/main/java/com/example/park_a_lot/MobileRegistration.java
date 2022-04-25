@@ -37,7 +37,6 @@ public class MobileRegistration extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String SendPhone = regPhone.getText().toString();
-//                startActivity(new Intent(MobileRegistration.this,Registration.class));
                 Intent i = new Intent(getApplicationContext(), Registration.class);
                 i.putExtra("UserPhone",SendPhone);
                 startActivity(i);
