@@ -47,6 +47,7 @@ public class Login extends AppCompatActivity {
 
     private EditText editTextMobile, editTextPassword;
     private Button signIn;
+    private ImageView signInOtp;
 
 
     @Override
@@ -74,6 +75,7 @@ public class Login extends AppCompatActivity {
         editTextPassword=findViewById(R.id.logPassword) ;
 
 
+
         //Google Register
         mAuth = FirebaseAuth.getInstance();
         createRequest();
@@ -85,6 +87,13 @@ public class Login extends AppCompatActivity {
         });
 
         mRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), MobileRegistration.class));
+            }
+        });
+        signInOtp = findViewById(R.id.OTPLogin);
+        signInOtp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), MobileRegistration.class));

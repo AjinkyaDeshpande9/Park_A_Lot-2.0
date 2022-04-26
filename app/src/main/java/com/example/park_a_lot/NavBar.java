@@ -24,7 +24,6 @@ public class NavBar extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityNavBarBinding binding;
-    private Button logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,10 +65,16 @@ public class NavBar extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        FirebaseAuth.getInstance().signOut();
+        switch (item.getItemId()){
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getApplicationContext(), Login.class));
                 finish();
-        return  true;
+                return  true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

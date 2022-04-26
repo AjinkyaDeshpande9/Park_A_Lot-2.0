@@ -63,27 +63,40 @@ public class Registration extends AppCompatActivity {
 
 
                 //String Validating Conditions
-                if(TextUtils.isEmpty(userName) || TextUtils.isEmpty(userEmail) || TextUtils.isEmpty(userPassword) || TextUtils.isEmpty(userVecnumber) || TextUtils.isEmpty(userConfirmpassword))
+                if(TextUtils.isEmpty(userName) || TextUtils.isEmpty(userEmail) || TextUtils.isEmpty(userPassword) || TextUtils.isEmpty(userConfirmpassword) )
                 {
                     Toast.makeText(Registration.this,"All Fields are Required", Toast.LENGTH_SHORT).show();
                     regName.setError("Name is Required.");
                     regEmail.setError("Email is Required.");
                     regPassword.setError("Password is Required.");
                     regConpassword.setError("Password is Required.");
+                }
+
+                else {
+                    if (userPassword.equals(userConfirmpassword) && userPassword.length() > 6) {
+                        //If Everything is in constraints we initiate the process of adding this user
+                        storeNewUsersData();
+                        startActivity(new Intent(Registration.this, Login.class));
+                    }
+                    else {
+                        if (userPassword.length() <= 6) {
+                            regPassword.setError("Password must have atleast 7 characters");
+                            Toast.makeText(Registration.this, "Password too short!", Toast.LENGTH_LONG).show();
+                        } else {
+                            regConpassword.setError("Password does not match.");
+                            Toast.makeText(Registration.this, "Password does not match!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+
+                if (TextUtils.isEmpty(userVecnumber)) {
                     regVecnumber.setError("Vehicle Number is Required.");
                 }
-                else
-                {
-                    if(userPassword.equals(userConfirmpassword)){
-                        //If Everything is in constraints we initiate the process of adding this user
-                          storeNewUsersData();
-                          startActivity(new Intent(Registration.this,Login.class));
-                    }
-                    else{
-                        regConpassword.setError("Password does not match.");
-                        Toast.makeText(Registration.this,"Password does not match!", Toast.LENGTH_SHORT).show();
-                    }
+                else if(userVecnumber.length()!=10){
+                    regVecnumber.setError("Enter a valid number.");
                 }
+
+
 
             }
         });
