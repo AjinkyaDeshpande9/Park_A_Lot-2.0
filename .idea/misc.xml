@@ -8,7 +8,9 @@
         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_registration.xml" value="0.264" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/aboutus_bg.xml" value="0.1675" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/btn_bg.xml" value="0.1675" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/rounded_edittext.xml" value="0.1675" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/side_nav_bar.xml" value="0.1675" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_booking_page.xml" value="0.2" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_mobile_registration.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_nav_bar.xml" value="0.33" />
@@ -16,12 +18,14 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_registration.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/app_bar_nav_bar.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/app_bar_navigation.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/content_booking_page.xml" value="0.18" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/content_nav_bar.xml" value="0.22" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/content_navigation.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_aboutus.xml" value="0.22" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_dashboard.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_dashboard.xml" value="0.2" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_first.xml" value="0.18" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_gallery.xml" value="0.18645833333333334" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_home.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_slideshow.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/nav_header_nav_bar.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/nav_header_navigation.xml" value="0.18645833333333334" />

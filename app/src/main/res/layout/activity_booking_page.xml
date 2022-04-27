@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ebecf0"
+    tools:context=".BookingPage">
+
+
+<!--    First Card-->
+    <ImageView
+        android:id="@+id/bluebg1"
+        android:layout_width="173dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="116dp"
+        app:layout_constraintEnd_toEndOf="@+id/parkingImg1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/parkingImg1"
+        app:layout_constraintTop_toTopOf="@+id/parkingImg1"
+        app:srcCompat="@drawable/aboutus_bg" />
+
+    <ImageView
+        android:id="@+id/parkingImg1"
+        android:layout_width="173dp"
+        android:layout_height="148dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17"
+        app:srcCompat="@drawable/slideshowone" />
+
+    <TextView
+        android:id="@+id/parkingName1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:fontFamily="@font/roboto"
+        android:text="Satra Plaza"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/bluebg1"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="@+id/bluebg1"
+        app:layout_constraintTop_toTopOf="@+id/parkingImg1" />
+
+    <TextView
+        android:id="@+id/parkingAddress1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:fontFamily="@font/roboto"
+        android:text="Unit 110, 1st Floor, 19D, Palm Beach \nRd, Sector 14, Vashi"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bluebg1"
+        app:layout_constraintEnd_toEndOf="@+id/bluebg1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/parkingName1"
+        app:layout_constraintTop_toBottomOf="@+id/parkingName1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/parkingBookbtn1"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="41dp"
+        android:background="@drawable/rounded_edittext"
+        android:fontFamily="@font/roboto"
+        android:text="Book Now"
+        android:textAllCaps="false"
+        android:textColor="#0D1723"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/bluebg1"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/bluebg1"
+        app:layout_constraintTop_toBottomOf="@+id/parkingAddress1" />
+
+<!--    Second Parking-->
+
+    <ImageView
+        android:id="@+id/bluebg2"
+        android:layout_width="173dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="116dp"
+        app:layout_constraintEnd_toEndOf="@+id/parkingImg2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/parkingImg2"
+        app:layout_constraintTop_toTopOf="@+id/parkingImg2"
+        app:srcCompat="@drawable/aboutus_bg" />
+
+    <ImageView
+        android:id="@+id/parkingImg2"
+        android:layout_width="173dp"
+        android:layout_height="148dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17"
+        app:srcCompat="@drawable/slideshowtwo" />
+
+    <TextView
+        android:id="@+id/parkingName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:fontFamily="@font/roboto"
+        android:text="Inorbit Mall "
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/bluebg2"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="@+id/bluebg2"
+        app:layout_constraintTop_toTopOf="@+id/parkingImg2" />
+
+    <TextView
+        android:id="@+id/parkingAddress2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:fontFamily="@font/roboto"
+        android:text="Railway Station, Palm Beach Rd,\n near Vashi, Sector 30A, Vashi"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bluebg2"
+        app:layout_constraintEnd_toEndOf="@+id/bluebg2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/parkingName2"
+        app:layout_constraintTop_toBottomOf="@+id/parkingName2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/parkingBookbtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="41dp"
+        android:background="@drawable/rounded_edittext"
+        android:fontFamily="@font/roboto"
+        android:text="Book Now"
+        android:textAllCaps="false"
+        android:textColor="#0D1723"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/bluebg2"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/bluebg2"
+        app:layout_constraintTop_toBottomOf="@+id/parkingAddress2" />
+
+    <!--    Third Parking-->
+
+    <ImageView
+        android:id="@+id/bluebg3"
+        android:layout_width="173dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="116dp"
+        app:layout_constraintEnd_toEndOf="@+id/parkingImg3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/parkingImg3"
+        app:layout_constraintTop_toTopOf="@+id/parkingImg3"
+        app:srcCompat="@drawable/aboutus_bg" />
+
+    <ImageView
+        android:id="@+id/parkingImg3"
+        android:layout_width="173dp"
+        android:layout_height="148dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bluebg1"
+        app:srcCompat="@drawable/slideshowthree" />
+
+    <TextView
+        android:id="@+id/parkingName3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:fontFamily="@font/roboto"
+        android:text="Raghuleela Mall "
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/bluebg3"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="@+id/bluebg3"
+        app:layout_constraintTop_toTopOf="@+id/parkingImg3" />
+
+    <TextView
+        android:id="@+id/parkingAddress3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:fontFamily="@font/roboto"
+        android:text="Plot No 34, 35, 38, Pranavanandji Marg,\nSector 30A, Vashi"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bluebg3"
+        app:layout_constraintEnd_toEndOf="@+id/bluebg3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/parkingName3"
+        app:layout_constraintTop_toBottomOf="@+id/parkingName3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/parkingBookbtn3"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="41dp"
+        android:background="@drawable/rounded_edittext"
+        android:fontFamily="@font/roboto"
+        android:text="Book Now"
+        android:textAllCaps="false"
+        android:textColor="#0D1723"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/bluebg3"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/bluebg3"
+        app:layout_constraintTop_toBottomOf="@+id/parkingAddress3" />
+
+    <!--  Fourth Parking-->
+
+    <ImageView
+        android:id="@+id/bluebg4"
+        android:layout_width="173dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="116dp"
+        app:layout_constraintEnd_toEndOf="@+id/parkingImg4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/parkingImg4"
+        app:layout_constraintTop_toTopOf="@+id/parkingImg4"
+        app:srcCompat="@drawable/aboutus_bg" />
+
+    f
+
+    <ImageView
+        android:id="@+id/parkingImg4"
+        android:layout_width="173dp"
+        android:layout_height="148dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bluebg2"
+        app:srcCompat="@drawable/slideshowfour" />
+
+    <TextView
+        android:id="@+id/parkingName4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:fontFamily="@font/roboto"
+        android:text="Vashi Parking"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/bluebg4"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="@+id/bluebg4"
+        app:layout_constraintTop_toTopOf="@+id/parkingImg4" />
+
+    <TextView
+        android:id="@+id/parkingAddress4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:fontFamily="@font/roboto"
+        android:text="Car Parking Area, Vashi Shivaji Chowk,\n Juhu Nagar, Sector-16, Vashi"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bluebg4"
+        app:layout_constraintEnd_toEndOf="@+id/bluebg4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/parkingName4"
+        app:layout_constraintTop_toBottomOf="@+id/parkingName4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/parkingBookbtn4"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="41dp"
+        android:background="@drawable/rounded_edittext"
+        android:fontFamily="@font/roboto"
+        android:text="Book Now"
+        android:textAllCaps="false"
+        android:textColor="#0D1723"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/bluebg4"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/bluebg4"
+        app:layout_constraintTop_toBottomOf="@+id/parkingAddress4" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/roboto"
+        android:text="Location : VASHI"
+        android:textColor="#0D1723"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
