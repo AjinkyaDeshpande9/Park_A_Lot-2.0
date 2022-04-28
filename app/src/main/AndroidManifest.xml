@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ParkALot">
         <activity
+            android:name=".BookingSummary"
+            android:exported="false" />
+        <activity
             android:name=".ParkingLot4"
             android:exported="false" />
         <activity
