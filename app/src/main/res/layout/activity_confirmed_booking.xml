@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfirmedBooking">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="151dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="149dp"
+        android:fontFamily="@font/roboto"
+        android:text="Booking Successful"
+        android:textAllCaps="true"
+        android:textColor="#0D1723"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ConfirmVenueName"
+        android:layout_width="219dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto"
+        android:text=" "
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/ConfirmVenueAddress"
+        android:layout_width="373dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="24dp"
+        android:text=" "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ConfirmVenueName" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="166dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ConfirmVenueAddress"
+        tools:srcCompat="@tools:sample/avatars"
+        tools:visibility="invisible" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ProceedtoSummary"
+        android:layout_width="180dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/btn_bg"
+        android:text="Generate QR Code"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ConfirmVenueAddress" />
+
+    <TextView
+        android:id="@+id/ParkingInfoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto"
+        android:text="Parking Info"
+        android:textColor="#0D1723"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/ComfirmedText"
+        android:layout_width="176dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto"
+        android:text="  PARKING COMPLETED"
+        android:background="@color/browser_actions_bg_grey"
+        android:drawableLeft="@drawable/tickicon"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ParkingInfoText" />
+
+    <TextView
+        android:id="@+id/ParkingDateStart"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/roboto"
+        android:text="   "
+        android:textColor="#0D1723"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ComfirmedText" />
+
+    <TextView
+        android:id="@+id/ParkingDateEnd"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="64dp"
+        android:fontFamily="@font/roboto"
+        android:text="   "
+        android:textColor="#0D1723"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ComfirmedText" />
+
+    <TextView
+        android:id="@+id/ParkingTimeStart"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/roboto"
+        android:text="   "
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/ParkingDateStart"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ParkingDateStart"
+        app:layout_constraintTop_toBottomOf="@+id/ComfirmedText" />
+
+    <ImageView
+        android:id="@+id/CalenderIcon"
+        android:layout_width="49dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/ParkingDateStart"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ComfirmedText"
+        app:srcCompat="@drawable/calendericon" />
+
+    <TextView
+        android:id="@+id/ParkingTimeEnd"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/roboto"
+        android:text="   "
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/ParkingDateEnd"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/ParkingDateEnd"
+        app:layout_constraintTop_toBottomOf="@+id/ComfirmedText" />
+
+    <TextView
+        android:id="@+id/ParkingRateText"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto"
+        android:text="Parking"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ParkingTimeStart" />
+
+    <TextView
+        android:id="@+id/ParkingRate"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto"
+        android:text=" "
+        android:textAlignment="textEnd"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ParkingTimeEnd" />
+
+    <TextView
+        android:id="@+id/CGSTText"
+        android:layout_width="100dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="76dp"
+        android:fontFamily="@font/roboto"
+        android:text="CGST"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ParkingRateText" />
+
+    <TextView
+        android:id="@+id/CGSTRate"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="208dp"
+        android:fontFamily="@font/roboto"
+        android:text="9%"
+        android:textAlignment="textEnd"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ParkingRate" />
+
+    <TextView
+        android:id="@+id/SGSTText"
+        android:layout_width="100dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="76dp"
+        android:fontFamily="@font/roboto"
+        android:text="SGST"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CGSTText" />
+
+    <TextView
+        android:id="@+id/SGSTRate"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="208dp"
+        android:fontFamily="@font/roboto"
+        android:text="9%"
+        android:textAlignment="textEnd"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CGSTRate" />
+
+    <TextView
+        android:id="@+id/GrandTotalText"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/roboto"
+        android:text="Grand Total"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#0D1723"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SGSTText" />
+
+    <TextView
+        android:id="@+id/GrandTotalRate"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto"
+        android:text="  "
+        android:textAlignment="textEnd"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.668"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SGSTRate" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/BackToHome"
+        android:layout_width="180dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_bg"
+        android:text="Home"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/GrandTotalRate" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SGSTRate"
+        app:srcCompat="@drawable/line" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
