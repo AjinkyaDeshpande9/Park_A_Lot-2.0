@@ -1,0 +1,181 @@
+Index: app/src/main/java/com/example/park_a_lot/ConfirmedBooking.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.park_a_lot;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\n\r\nimport com.example.park_a_lot.ui.home.HomeFragment;\r\n\r\npublic class ConfirmedBooking extends AppCompatActivity {\r\n\r\n    Button BackToHome;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_confirmed_booking);\r\n        BackToHome = findViewById(R.id.BackToHome);\r\n\r\n        BackToHome.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                startActivity(new Intent(getApplicationContext(), HomeFragment.class));\r\n            }\r\n        });\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/park_a_lot/ConfirmedBooking.java b/app/src/main/java/com/example/park_a_lot/ConfirmedBooking.java
+--- a/app/src/main/java/com/example/park_a_lot/ConfirmedBooking.java	(revision 5929fe59a5aff7ed34dfada33c6c49cc7ff51968)
++++ b/app/src/main/java/com/example/park_a_lot/ConfirmedBooking.java	(date 1651250394314)
+@@ -12,7 +12,6 @@
+ public class ConfirmedBooking extends AppCompatActivity {
+ 
+     Button BackToHome;
+-
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+@@ -26,4 +25,5 @@
+             }
+         });
+     }
++
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/park_a_lot/BookingSummary.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.park_a_lot;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.widget.Button;\r\nimport android.widget.TextView;\r\n\r\nimport com.google.android.gms.common.util.SharedPreferencesUtils;\r\n\r\npublic class BookingSummary extends AppCompatActivity {\r\n    String SParkingCost,SParkingTime, SParkingDate,SParkingVenue,SParkingAddress,SParkingEndTime,SParkingDuration;\r\n    TextView SVenueName,SVenueAddress,SVenueDate, SVenueDuration,SVenueTime, SVenueCost;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_booking_summary);\r\n        Intent i = getIntent();\r\n        SParkingTime = i.getStringExtra(\"ParkingTime\");\r\n        SParkingDate = i.getStringExtra(\"ParkingDate\");\r\n        SParkingCost = i.getStringExtra(\"ParkingCost\");\r\n        SParkingVenue = i.getStringExtra(\"ParkingVenue\");\r\n        SParkingAddress = i.getStringExtra(\"ParkingAddress\");\r\n        SParkingEndTime = i.getStringExtra(\"ParkingEndTime\");\r\n        SParkingDuration = i.getStringExtra(\"ParkingDuration\");\r\n\r\n        SVenueName = findViewById(R.id.ConfirmVenueName);\r\n        SVenueAddress = findViewById(R.id.ConfirmVenueAddress);\r\n        SVenueDate = findViewById(R.id.ConfirmDate);\r\n        SVenueDuration = findViewById(R.id.ConfirmDuration);\r\n        SVenueTime = findViewById(R.id.ConfirmTime);\r\n        SVenueCost = findViewById(R.id.GrandTotal);\r\n\r\n        SVenueName.setText(SParkingVenue);\r\n        SVenueAddress.setText(SParkingAddress);\r\n        SVenueDate.setText(SParkingDate);\r\n        SVenueDuration.setText(SParkingDuration);\r\n        SVenueTime.setText(SParkingTime);\r\n        SVenueCost.setText(SParkingCost);\r\n\r\n        System.out.println(\"Parking cost \"+SParkingCost);\r\n//        System.out.println(\"Parking Date \"+SParkingDate );\r\n//        System.out.println(\"Parking Time \"+SParkingTime);\r\n//        System.out.println(\"Parking Venue \"+SParkingVenue);\r\n//        System.out.println(\"Parking Address \"+SParkingAddress);\r\n//        System.out.println(\"Parking Address \"+SParkingEndTime);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/park_a_lot/BookingSummary.java b/app/src/main/java/com/example/park_a_lot/BookingSummary.java
+--- a/app/src/main/java/com/example/park_a_lot/BookingSummary.java	(revision 5929fe59a5aff7ed34dfada33c6c49cc7ff51968)
++++ b/app/src/main/java/com/example/park_a_lot/BookingSummary.java	(date 1651250394309)
+@@ -39,12 +39,6 @@
+         SVenueDuration.setText(SParkingDuration);
+         SVenueTime.setText(SParkingTime);
+         SVenueCost.setText(SParkingCost);
+-
+-        System.out.println("Parking cost "+SParkingCost);
+-//        System.out.println("Parking Date "+SParkingDate );
+-//        System.out.println("Parking Time "+SParkingTime);
+-//        System.out.println("Parking Venue "+SParkingVenue);
+-//        System.out.println("Parking Address "+SParkingAddress);
+-//        System.out.println("Parking Address "+SParkingEndTime);
++        
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/park_a_lot/BookingPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.park_a_lot;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\n\r\npublic class BookingPage extends AppCompatActivity {\r\n    Button parkingbookbtn1, parkingbookbtn2, parkingbookbtn3, parkingbookbtn4;\r\n    String ParkingLotNo;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_booking_page);\r\n        parkingbookbtn1 = findViewById(R.id.parkingBookbtn1);\r\n        parkingbookbtn2 = findViewById(R.id.parkingBookbtn2);\r\n        parkingbookbtn3 = findViewById(R.id.parkingBookbtn3);\r\n        parkingbookbtn4 = findViewById(R.id.parkingBookbtn4);\r\n\r\n        parkingbookbtn1.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                ParkingLotNo =\"0001\";\r\n                Intent i = new Intent(getApplicationContext(), ParkingLot.class);\r\n                i.putExtra(\"ParkingLotid\",ParkingLotNo);\r\n                startActivity(i);\r\n            }\r\n        });\r\n\r\n        parkingbookbtn2.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                ParkingLotNo =\"0002\";\r\n                Intent i = new Intent(getApplicationContext(), ParkingLot.class);\r\n                i.putExtra(\"ParkingLotid\",ParkingLotNo);\r\n                startActivity(i);\r\n            }\r\n        });\r\n\r\n        parkingbookbtn3.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                ParkingLotNo =\"0003\";\r\n                Intent i = new Intent(getApplicationContext(), ParkingLot.class);\r\n                i.putExtra(\"ParkingLotid\",ParkingLotNo);\r\n                startActivity(i);\r\n            }\r\n        });\r\n\r\n        parkingbookbtn4.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                ParkingLotNo =\"0004\";\r\n                Intent i = new Intent(getApplicationContext(), ParkingLot.class);\r\n                i.putExtra(\"ParkingLotid\",ParkingLotNo);\r\n                startActivity(i);\r\n            }\r\n        });\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/park_a_lot/BookingPage.java b/app/src/main/java/com/example/park_a_lot/BookingPage.java
+--- a/app/src/main/java/com/example/park_a_lot/BookingPage.java	(revision 5929fe59a5aff7ed34dfada33c6c49cc7ff51968)
++++ b/app/src/main/java/com/example/park_a_lot/BookingPage.java	(date 1651249486312)
+@@ -1,12 +1,13 @@
+ package com.example.park_a_lot;
+ 
+-import androidx.appcompat.app.AppCompatActivity;
+-
+ import android.content.Intent;
+ import android.os.Bundle;
+ import android.view.View;
+ import android.widget.Button;
+ 
++import androidx.appcompat.app.AppCompatActivity;
++
++
+ public class BookingPage extends AppCompatActivity {
+     Button parkingbookbtn1, parkingbookbtn2, parkingbookbtn3, parkingbookbtn4;
+     String ParkingLotNo;
+@@ -20,6 +21,8 @@
+         parkingbookbtn3 = findViewById(R.id.parkingBookbtn3);
+         parkingbookbtn4 = findViewById(R.id.parkingBookbtn4);
+ 
++
++
+         parkingbookbtn1.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+Index: app/src/main/res/layout/activity_parking_lot.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".ParkingLot\">\r\n\r\n    <ImageView\r\n        android:id=\"@+id/VenueImage\"\r\n        android:layout_width=\"421dp\"\r\n        android:layout_height=\"270dp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n         />\r\n\r\n    <TextView\r\n        android:id=\"@+id/VenueName\"\r\n        android:layout_width=\"219dp\"\r\n        android:layout_height=\"34dp\"\r\n        android:layout_marginTop=\"12dp\"\r\n        android:fontFamily=\"@font/roboto\"\r\n        android:text=\" \"\r\n        android:textAllCaps=\"true\"\r\n        android:textColor=\"#0D1723\"\r\n        android:textSize=\"24dp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.083\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/VenueImage\"\r\n        tools:ignore=\"MissingConstraints\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/VenueAddress\"\r\n        android:layout_width=\"373dp\"\r\n        android:layout_height=\"45dp\"\r\n        android:layout_marginTop=\"8dp\"\r\n        android:text=\"   \"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.421\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/VenueName\" />\r\n\r\n    <ImageView\r\n        android:id=\"@+id/imageView3\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"16dp\"\r\n        android:layout_marginTop=\"12dp\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/VenueAddress\"\r\n        app:srcCompat=\"@drawable/parkinglogo\" />\r\n\r\n\r\n    <TextView\r\n        android:id=\"@+id/VenueAvail\"\r\n        android:layout_width=\"176dp\"\r\n        android:layout_height=\"20dp\"\r\n        android:layout_marginStart=\"4dp\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:fontFamily=\"@font/roboto\"\r\n        android:text=\"  \"\r\n        android:textColor=\"#0D1723\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintStart_toEndOf=\"@+id/imageView3\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/VenueAddress\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/VenueRate\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:layout_marginEnd=\"44dp\"\r\n        android:fontFamily=\"@font/roboto\"\r\n        android:text=\" \"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/VenueAddress\" />\r\n\r\n    <ImageView\r\n        android:id=\"@+id/imageView4\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"12dp\"\r\n        android:layout_marginEnd=\"8dp\"\r\n        app:layout_constraintEnd_toStartOf=\"@+id/VenueRate\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/VenueAddress\"\r\n        app:srcCompat=\"@drawable/cashicon\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/ConfirmTime\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"16dp\"\r\n        android:layout_marginTop=\"40dp\"\r\n        android:fontFamily=\"@font/roboto\"\r\n        android:text=\"Parking Date\"\r\n        android:textColor=\"#0D1723\"\r\n        android:textSize=\"16sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/imageView3\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/datePickerButton\"\r\n        style=\"?android:spinnerStyle\"\r\n        android:layout_width=\"149dp\"\r\n        android:layout_height=\"42dp\"\r\n        android:layout_marginTop=\"8dp\"\r\n        android:onClick=\"openDatePicker\"\r\n        android:text=\"JAN 01 2020\"\r\n        android:textColor=\"@color/black\"\r\n        android:textSize=\"14sp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.061\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/ConfirmTime\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView20\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"16dp\"\r\n        android:layout_marginTop=\"24dp\"\r\n        android:fontFamily=\"@font/roboto\"\r\n        android:text=\"Parking Duration\"\r\n        android:textColor=\"#0D1723\"\r\n        android:textSize=\"16sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/datePickerButton\" />\r\n\r\n    <RadioGroup\r\n        android:id=\"@+id/radioGroup2\"\r\n        android:layout_width=\"365dp\"\r\n        android:layout_height=\"33dp\"\r\n        android:layout_marginStart=\"16dp\"\r\n        android:layout_marginTop=\"4dp\"\r\n        android:orientation=\"horizontal\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.19\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/textView20\">\r\n\r\n        <RadioButton\r\n            android:id=\"@+id/radioButton7\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_weight=\"1\"\r\n            android:checked=\"true\"\r\n            android:text=\"1 Hour\"\r\n            android:buttonTint=\"#0D1723\" />\r\n\r\n        <RadioButton\r\n            android:id=\"@+id/radioButton6\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_weight=\"1\"\r\n            android:text=\"3 Hours\"\r\n            android:buttonTint=\"#0D1723\"/>\r\n\r\n        <RadioButton\r\n            android:id=\"@+id/radioButton5\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_weight=\"1\"\r\n            android:text=\"5 Hours\"\r\n            android:buttonTint=\"#0D1723\"/>\r\n    </RadioGroup>\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView21\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"16dp\"\r\n        android:layout_marginTop=\"24dp\"\r\n        android:fontFamily=\"@font/roboto\"\r\n        android:text=\"Parking Time\"\r\n        android:textColor=\"#0D1723\"\r\n        android:textSize=\"16sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/radioGroup2\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatButton\r\n        android:id=\"@+id/timeButton\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"16dp\"\r\n        android:layout_marginTop=\"8dp\"\r\n        android:width=\"149dp\"\r\n        android:height=\"42dp\"\r\n        android:background=\"@color/white\"\r\n        android:onClick=\"popTimePicker\"\r\n        android:text=\"Select Time\"\r\n        android:textColor=\"#0D1723\"\r\n        android:textSize=\"14sp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.061\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/textView21\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatButton\r\n        android:id=\"@+id/ProceedtoSummary\"\r\n        android:layout_width=\"148dp\"\r\n        android:layout_height=\"51dp\"\r\n        android:layout_marginTop=\"20dp\"\r\n        android:background=\"@drawable/btn_bg\"\r\n        android:text=\"Proceed\"\r\n        android:textColor=\"@color/white\"\r\n        android:textSize=\"16sp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.493\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/timeButton\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_parking_lot.xml b/app/src/main/res/layout/activity_parking_lot.xml
+--- a/app/src/main/res/layout/activity_parking_lot.xml	(revision 5929fe59a5aff7ed34dfada33c6c49cc7ff51968)
++++ b/app/src/main/res/layout/activity_parking_lot.xml	(date 1651233174918)
+@@ -145,7 +145,7 @@
+         app:layout_constraintTop_toBottomOf="@+id/textView20">
+ 
+         <RadioButton
+-            android:id="@+id/radioButton7"
++            android:id="@+id/radio1Hour"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+@@ -154,7 +154,7 @@
+             android:buttonTint="#0D1723" />
+ 
+         <RadioButton
+-            android:id="@+id/radioButton6"
++            android:id="@+id/radio2Hour"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+@@ -162,7 +162,7 @@
+             android:buttonTint="#0D1723"/>
+ 
+         <RadioButton
+-            android:id="@+id/radioButton5"
++            android:id="@+id/radio3Hour"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+@@ -206,14 +206,14 @@
+         android:id="@+id/ProceedtoSummary"
+         android:layout_width="148dp"
+         android:layout_height="51dp"
+-        android:layout_marginTop="20dp"
++        android:layout_marginTop="52dp"
+         android:background="@drawable/btn_bg"
+         android:text="Proceed"
+         android:textColor="@color/white"
+         android:textSize="16sp"
+         app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintHorizontal_bias="0.493"
++        app:layout_constraintHorizontal_bias="0.762"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toBottomOf="@+id/timeButton" />
++        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+ 
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_booking_summary.xml\" value=\"0.7828571428571428\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_dummy.xml\" value=\"0.2540983606557377\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_login.xml\" value=\"0.2540983606557377\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_main.xml\" value=\"0.17074275362318841\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_mobile_registration.xml\" value=\"0.264\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_nav_bar.xml\" value=\"0.3624454148471616\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_parking_lot.xml\" value=\"0.72\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_parking_lot2.xml\" value=\"0.8106508875739645\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_registration.xml\" value=\"0.264\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/app_bar_nav_bar.xml\" value=\"0.5714285714285714\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/buttonstyle.xml\" value=\"0.5714285714285714\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/content_nav_bar.xml\" value=\"0.5714285714285714\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/fragment_dashboard.xml\" value=\"0.5714285714285714\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/fragment_home.xml\" value=\"0.5714285714285714\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/gradientbackground.xml\" value=\"0.5714285714285714\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/nav_header_nav_bar.xml\" value=\"0.72\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/menu/activity_main_drawer.xml\" value=\"0.536\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/menu/nav_bar.xml\" value=\"0.72\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/aboutus_bg.xml\" value=\"0.1675\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/btn_bg.xml\" value=\"0.1675\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/rounded_edittext.xml\" value=\"0.1675\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/side_nav_bar.xml\" value=\"0.1675\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_booking_page.xml\" value=\"0.2\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_login.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_mobile_registration.xml\" value=\"0.25\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_nav_bar.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_navigation.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_registration.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/app_bar_nav_bar.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/app_bar_navigation.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/content_booking_page.xml\" value=\"0.18\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/content_nav_bar.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/content_navigation.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_aboutus.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_dashboard.xml\" value=\"0.2\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_first.xml\" value=\"0.18\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_gallery.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_home.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_slideshow.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/nav_header_nav_bar.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/nav_header_navigation.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/menu/activity_main_drawer.xml\" value=\"0.33\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"Android Studio default JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 5929fe59a5aff7ed34dfada33c6c49cc7ff51968)
++++ b/.idea/misc.xml	(date 1651240032548)
+@@ -3,7 +3,9 @@
+   <component name="DesignSurface">
+     <option name="filePathToZoomLevelMap">
+       <map>
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_booking_page.xml" value="0.5714285714285714" />
+         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_booking_summary.xml" value="0.7828571428571428" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_confirmed_booking.xml" value="0.5714285714285714" />
+         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_dummy.xml" value="0.2540983606557377" />
+         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_login.xml" value="0.2540983606557377" />
+         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id 'com.android.application'\r\n    id 'com.google.gms.google-services'\r\n}\r\n\r\nandroid {\r\n    compileSdk 32\r\n\r\n    defaultConfig {\r\n        applicationId \"com.example.park_a_lot\"\r\n        minSdk 21\r\n        targetSdk 32\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n    buildFeatures {\r\n        viewBinding true\r\n    }\r\n}\r\n\r\ndependencies {\r\n\r\n    implementation 'androidx.appcompat:appcompat:1.3.0'\r\n    implementation 'com.google.android.material:material:1.4.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'\r\n    implementation 'com.google.firebase:firebase-database:20.0.4'\r\n    implementation 'com.google.android.gms:play-services-auth:19.0.0'\r\n    implementation 'com.google.firebase:firebase-auth:21.0.1'\r\n    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'\r\n    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'\r\n    implementation 'androidx.navigation:navigation-fragment:2.3.5'\r\n    implementation 'androidx.navigation:navigation-ui:2.3.5'\r\n    testImplementation 'junit:junit:4.13.2'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.3'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	(revision 5929fe59a5aff7ed34dfada33c6c49cc7ff51968)
++++ b/app/build.gradle	(date 1651249800031)
+@@ -30,9 +30,7 @@
+         viewBinding true
+     }
+ }
+-
+ dependencies {
+-
+     implementation 'androidx.appcompat:appcompat:1.3.0'
+     implementation 'com.google.android.material:material:1.4.0'
+     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'

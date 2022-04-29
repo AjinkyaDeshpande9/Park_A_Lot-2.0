@@ -38,7 +38,7 @@ public class ParkingLot extends AppCompatActivity {
     TextView Pavail, Prate,Padd,Pname;
     ImageView Pimage;
     int hour, minute, Pcost,calrate, endtimecal, RawRate;
-    String ParkingLotNo,Pdate,Ptime,getVenueName,getVenueAddress,PendTime,PDuration,getrate, getRadioId;
+    String ParkingLotNo,Pdate,Ptime,getVenueName,getVenueAddress,PendTime,PDuration,getrate, getRadioId,getslots;
     RadioGroup radioGroup;
     RadioButton radioButton;
 
@@ -191,7 +191,7 @@ public class ParkingLot extends AppCompatActivity {
            getVenueName = snapshot.child(ParkingLotNo).child("Vname").getValue(String.class);
            Long getVenueRate = snapshot.child(ParkingLotNo).child("Vrate").getValue(Long.class);
            getrate = Long.toString(getVenueRate);
-           String getslots = Long.toString(getAvailableSlots);
+           getslots = Long.toString(getAvailableSlots);
            calrate = Integer.valueOf(getrate);
            Padd.setText(getVenueAddress);
            Pname.setText(getVenueName);
@@ -253,8 +253,9 @@ public class ParkingLot extends AppCompatActivity {
                 i.putExtra("ParkingAddress",getVenueAddress);
                 i.putExtra("ParkingEndTime", PendTime);
                 i.putExtra("ParkingDuration", PDuration);
-                System.out.println("Parking duration "+PDuration);
                 i.putExtra("ParkingRawRate",StringRawRate);
+                i.putExtra("ParkingLotNo",ParkingLotNo);
+                i.putExtra("AvailableSlots",getslots);
                 startActivity(i);
             }
         });

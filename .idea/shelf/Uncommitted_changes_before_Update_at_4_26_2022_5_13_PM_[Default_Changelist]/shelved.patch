@@ -1,0 +1,87 @@
+Index: app/src/main/java/com/example/park_a_lot/NavBar.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.park_a_lot;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.view.Menu;\r\n\r\nimport com.google.android.material.snackbar.Snackbar;\r\nimport com.google.android.material.navigation.NavigationView;\r\n\r\nimport androidx.navigation.NavController;\r\nimport androidx.navigation.Navigation;\r\nimport androidx.navigation.ui.AppBarConfiguration;\r\nimport androidx.navigation.ui.NavigationUI;\r\nimport androidx.drawerlayout.widget.DrawerLayout;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport com.example.park_a_lot.databinding.ActivityNavBarBinding;\r\n\r\npublic class NavBar extends AppCompatActivity {\r\n\r\n    private AppBarConfiguration mAppBarConfiguration;\r\n    private ActivityNavBarBinding binding;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n\r\n        binding = ActivityNavBarBinding.inflate(getLayoutInflater());\r\n        setContentView(binding.getRoot());\r\n\r\n        setSupportActionBar(binding.appBarNavBar.toolbar);\r\n        binding.appBarNavBar.fab.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                Snackbar.make(view, \"Replace with your own action\", Snackbar.LENGTH_LONG)\r\n                        .setAction(\"Action\", null).show();\r\n            }\r\n        });\r\n        DrawerLayout drawer = binding.drawerLayout;\r\n        NavigationView navigationView = binding.navView;\r\n        // Passing each menu ID as a set of Ids because each\r\n        // menu should be considered as top level destinations.\r\n        mAppBarConfiguration = new AppBarConfiguration.Builder(\r\n                R.id.nav_home, R.id.nav_dashboard, R.id.nav_aboutus)\r\n                .setOpenableLayout(drawer)\r\n                .build();\r\n        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_nav_bar);\r\n        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);\r\n        NavigationUI.setupWithNavController(navigationView, navController);\r\n    }\r\n\r\n    @Override\r\n    public boolean onCreateOptionsMenu(Menu menu) {\r\n        // Inflate the menu; this adds items to the action bar if it is present.\r\n        getMenuInflater().inflate(R.menu.nav_bar, menu);\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean onSupportNavigateUp() {\r\n        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_nav_bar);\r\n        return NavigationUI.navigateUp(navController, mAppBarConfiguration)\r\n                || super.onSupportNavigateUp();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/park_a_lot/NavBar.java b/app/src/main/java/com/example/park_a_lot/NavBar.java
+--- a/app/src/main/java/com/example/park_a_lot/NavBar.java	(revision 2eae20caa3b9f4e49bb74af4502bb5bdf3e994dd)
++++ b/app/src/main/java/com/example/park_a_lot/NavBar.java	(date 1650973391828)
+@@ -1,5 +1,8 @@
+ package com.example.park_a_lot;
++import android.content.Intent;
++import android.net.Uri;
+ import android.os.Bundle;
++import android.view.MenuItem;
+ import android.view.View;
+ import android.view.Menu;
+ 
+@@ -14,6 +17,7 @@
+ import androidx.appcompat.app.AppCompatActivity;
+ 
+ import com.example.park_a_lot.databinding.ActivityNavBarBinding;
++import com.google.firebase.auth.FirebaseAuth;
+ 
+ public class NavBar extends AppCompatActivity {
+ 
+@@ -27,12 +31,13 @@
+         binding = ActivityNavBarBinding.inflate(getLayoutInflater());
+         setContentView(binding.getRoot());
+ 
++
+         setSupportActionBar(binding.appBarNavBar.toolbar);
+         binding.appBarNavBar.fab.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+-                        .setAction("Action", null).show();
++             Snackbar.make(view, "Contact Us", Snackbar.LENGTH_SHORT)
++                       .setAction("Action", null).show();
+             }
+         });
+         DrawerLayout drawer = binding.drawerLayout;
+@@ -47,13 +52,7 @@
+         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+         NavigationUI.setupWithNavController(navigationView, navController);
+     }
+-
+-    @Override
+-    public boolean onCreateOptionsMenu(Menu menu) {
+-        // Inflate the menu; this adds items to the action bar if it is present.
+-        getMenuInflater().inflate(R.menu.nav_bar, menu);
+-        return true;
+-    }
++    
+ 
+     @Override
+     public boolean onSupportNavigateUp() {
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_main.xml\" value=\"0.17074275362318841\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_mobile_registration.xml\" value=\"0.264\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_registration.xml\" value=\"0.264\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/aboutus_bg.xml\" value=\"0.1675\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/btn_bg.xml\" value=\"0.1675\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/side_nav_bar.xml\" value=\"0.1675\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_login.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_mobile_registration.xml\" value=\"0.25\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_nav_bar.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_navigation.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_registration.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/app_bar_nav_bar.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/app_bar_navigation.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/content_nav_bar.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/content_navigation.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_aboutus.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_dashboard.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_gallery.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_home.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_slideshow.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/nav_header_nav_bar.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/nav_header_navigation.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/menu/activity_main_drawer.xml\" value=\"0.33\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"Android Studio default JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 2eae20caa3b9f4e49bb74af4502bb5bdf3e994dd)
++++ b/.idea/misc.xml	(date 1650972117490)
+@@ -3,9 +3,18 @@
+   <component name="DesignSurface">
+     <option name="filePathToZoomLevelMap">
+       <map>
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_dummy.xml" value="0.2540983606557377" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_login.xml" value="0.2540983606557377" />
+         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
+         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_mobile_registration.xml" value="0.264" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_nav_bar.xml" value="0.536" />
+         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_registration.xml" value="0.264" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/app_bar_nav_bar.xml" value="0.5714285714285714" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/content_nav_bar.xml" value="0.5714285714285714" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/fragment_dashboard.xml" value="0.5714285714285714" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/fragment_home.xml" value="0.5714285714285714" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/nav_header_nav_bar.xml" value="0.72" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/menu/nav_bar.xml" value="0.72" />
+         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/aboutus_bg.xml" value="0.1675" />
+         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/btn_bg.xml" value="0.1675" />
+         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/side_nav_bar.xml" value="0.1675" />

@@ -1,0 +1,125 @@
+Index: app/src/main/res/layout/activity_parking_lot.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".ParkingLot\">\r\n\r\n    <ImageView\r\n        android:id=\"@+id/VenueImage\"\r\n        android:layout_width=\"421dp\"\r\n        android:layout_height=\"270dp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n         />\r\n\r\n    <TextView\r\n        android:id=\"@+id/VenueName\"\r\n        android:layout_width=\"219dp\"\r\n        android:layout_height=\"34dp\"\r\n        android:layout_marginTop=\"12dp\"\r\n        android:fontFamily=\"@font/roboto\"\r\n        android:text=\" \"\r\n        android:textAllCaps=\"true\"\r\n        android:textColor=\"#0D1723\"\r\n        android:textSize=\"24dp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.083\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/VenueImage\"\r\n        tools:ignore=\"MissingConstraints\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/VenueAddress\"\r\n        android:layout_width=\"373dp\"\r\n        android:layout_height=\"45dp\"\r\n        android:layout_marginTop=\"8dp\"\r\n        android:text=\"   \"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.421\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/VenueName\" />\r\n\r\n    <ImageView\r\n        android:id=\"@+id/imageView3\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"16dp\"\r\n        android:layout_marginTop=\"12dp\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/VenueAddress\"\r\n        app:srcCompat=\"@drawable/parkinglogo\" />\r\n\r\n\r\n    <TextView\r\n        android:id=\"@+id/VenueAvail\"\r\n        android:layout_width=\"176dp\"\r\n        android:layout_height=\"20dp\"\r\n        android:layout_marginStart=\"4dp\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:fontFamily=\"@font/roboto\"\r\n        android:text=\"  \"\r\n        android:textColor=\"#0D1723\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintStart_toEndOf=\"@+id/imageView3\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/VenueAddress\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/VenueRate\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:layout_marginEnd=\"44dp\"\r\n        android:fontFamily=\"@font/roboto\"\r\n        android:text=\" \"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/VenueAddress\" />\r\n\r\n    <ImageView\r\n        android:id=\"@+id/imageView4\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"12dp\"\r\n        android:layout_marginEnd=\"8dp\"\r\n        app:layout_constraintEnd_toStartOf=\"@+id/VenueRate\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/VenueAddress\"\r\n        app:srcCompat=\"@drawable/cashicon\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView19\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"16dp\"\r\n        android:layout_marginTop=\"40dp\"\r\n        android:fontFamily=\"@font/roboto\"\r\n        android:text=\"Parking Date\"\r\n        android:textColor=\"#0D1723\"\r\n        android:textSize=\"16sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/imageView3\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/datePickerButton\"\r\n        style=\"?android:spinnerStyle\"\r\n        android:layout_width=\"149dp\"\r\n        android:layout_height=\"42dp\"\r\n        android:layout_marginTop=\"8dp\"\r\n        android:onClick=\"openDatePicker\"\r\n        android:text=\"JAN 01 2020\"\r\n        android:textColor=\"@color/black\"\r\n        android:textSize=\"14sp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.061\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/textView19\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView20\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"16dp\"\r\n        android:layout_marginTop=\"24dp\"\r\n        android:fontFamily=\"@font/roboto\"\r\n        android:text=\"Parking Duration\"\r\n        android:textColor=\"#0D1723\"\r\n        android:textSize=\"16sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/datePickerButton\" />\r\n\r\n    <RadioGroup\r\n        android:id=\"@+id/radioGroup2\"\r\n        android:layout_width=\"365dp\"\r\n        android:layout_height=\"33dp\"\r\n        android:layout_marginStart=\"16dp\"\r\n        android:layout_marginTop=\"4dp\"\r\n        android:orientation=\"horizontal\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.19\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/textView20\">\r\n\r\n        <RadioButton\r\n            android:id=\"@+id/radioButton7\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_weight=\"1\"\r\n            android:checked=\"true\"\r\n            android:text=\"1 Hour\"\r\n            android:buttonTint=\"#0D1723\" />\r\n\r\n        <RadioButton\r\n            android:id=\"@+id/radioButton6\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_weight=\"1\"\r\n            android:text=\"3 Hours\"\r\n            android:buttonTint=\"#0D1723\"/>\r\n\r\n        <RadioButton\r\n            android:id=\"@+id/radioButton5\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_weight=\"1\"\r\n            android:text=\"5 Hours\"\r\n            android:buttonTint=\"#0D1723\"/>\r\n    </RadioGroup>\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView21\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"16dp\"\r\n        android:layout_marginTop=\"24dp\"\r\n        android:fontFamily=\"@font/roboto\"\r\n        android:text=\"Parking Time\"\r\n        android:textColor=\"#0D1723\"\r\n        android:textSize=\"16sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/radioGroup2\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatButton\r\n        android:id=\"@+id/timeButton\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"16dp\"\r\n        android:layout_marginTop=\"8dp\"\r\n        android:width=\"149dp\"\r\n        android:height=\"42dp\"\r\n        android:background=\"@color/white\"\r\n        android:onClick=\"popTimePicker\"\r\n        android:text=\"Select Time\"\r\n        android:textColor=\"#0D1723\"\r\n        android:textSize=\"14sp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.061\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/textView21\" />\r\n\r\n    <androidx.appcompat.widget.AppCompatButton\r\n        android:id=\"@+id/button2\"\r\n        android:layout_width=\"148dp\"\r\n        android:layout_height=\"51dp\"\r\n        android:layout_marginTop=\"20dp\"\r\n        android:background=\"@drawable/btn_bg\"\r\n        android:text=\"Proceed\"\r\n        android:textColor=\"@color/white\"\r\n        android:textSize=\"16sp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.493\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/timeButton\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_parking_lot.xml b/app/src/main/res/layout/activity_parking_lot.xml
+--- a/app/src/main/res/layout/activity_parking_lot.xml	(revision 7f9d81e312e711a219cf9ec70c4102be1d219a6d)
++++ b/app/src/main/res/layout/activity_parking_lot.xml	(date 1651231756682)
+@@ -145,7 +145,7 @@
+         app:layout_constraintTop_toBottomOf="@+id/textView20">
+ 
+         <RadioButton
+-            android:id="@+id/radioButton7"
++            android:id="@+id/radio1Hour"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+@@ -154,7 +154,7 @@
+             android:buttonTint="#0D1723" />
+ 
+         <RadioButton
+-            android:id="@+id/radioButton6"
++            android:id="@+id/radio2Hour"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+@@ -162,7 +162,7 @@
+             android:buttonTint="#0D1723"/>
+ 
+         <RadioButton
+-            android:id="@+id/radioButton5"
++            android:id="@+id/radio3Hour"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+Index: app/src/main/java/com/example/park_a_lot/ParkingLot.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.park_a_lot;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.app.AlertDialog;\r\nimport android.app.DatePickerDialog;\r\nimport android.app.TimePickerDialog;\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.DatePicker;\r\nimport android.widget.ImageView;\r\nimport android.widget.TextView;\r\nimport android.widget.TimePicker;\r\n\r\nimport com.google.firebase.database.DataSnapshot;\r\nimport com.google.firebase.database.DatabaseError;\r\nimport com.google.firebase.database.DatabaseReference;\r\nimport com.google.firebase.database.FirebaseDatabase;\r\nimport com.google.firebase.database.ValueEventListener;\r\n\r\nimport java.util.Calendar;\r\nimport java.util.Locale;\r\n\r\npublic class ParkingLot extends AppCompatActivity {\r\n    FirebaseDatabase firebaseDatabase;\r\n    DatabaseReference databaseReference =\r\n            FirebaseDatabase.getInstance().getReferenceFromUrl(\"https://parkalot-b98ef-default-rtdb.firebaseio.com/\");\r\n\r\n    private DatePickerDialog datePickerDialog;\r\n    private Button dateButton, timeButton;\r\n    TextView Pavail, Prate,Padd,Pname;\r\n    ImageView Pimage;\r\n    int hour, minute;\r\n    String ParkingLotNo;\r\n\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        firebaseDatabase = FirebaseDatabase.getInstance();\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_parking_lot);\r\n        initDatePicker();\r\n        dateButton = findViewById(R.id.datePickerButton);\r\n        dateButton.setText(getTodaysDate());\r\n        timeButton = findViewById(R.id.timeButton);\r\n        Pavail = findViewById(R.id.VenueAvail);\r\n        Prate = findViewById(R.id.VenueRate);\r\n        Padd = findViewById(R.id.VenueAddress);\r\n        Pname = findViewById(R.id.VenueName);\r\n        Pimage = findViewById(R.id.VenueImage);\r\n\r\n        Intent i = getIntent();\r\n        ParkingLotNo = i.getStringExtra(\"ParkingLotid\");\r\n        System.out.println(ParkingLotNo);\r\n        getData();\r\n    }\r\n\r\n\r\n    private String getTodaysDate()\r\n    {\r\n        Calendar cal = Calendar.getInstance();\r\n        int year = cal.get(Calendar.YEAR);\r\n        int month = cal.get(Calendar.MONTH);\r\n        month = month + 1;\r\n        int day = cal.get(Calendar.DAY_OF_MONTH);\r\n        return makeDateString(day, month, year);\r\n    }\r\n\r\n    private void initDatePicker()\r\n    {\r\n        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener()\r\n        {\r\n            @Override\r\n            public void onDateSet(DatePicker datePicker, int year, int month, int day)\r\n            {\r\n                month = month + 1;\r\n                String date = makeDateString(day, month, year);\r\n                dateButton.setText(date);\r\n            }\r\n        };\r\n\r\n        Calendar cal = Calendar.getInstance();\r\n        int year = cal.get(Calendar.YEAR);\r\n        int month = cal.get(Calendar.MONTH);\r\n        int day = cal.get(Calendar.DAY_OF_MONTH);\r\n\r\n        int style = AlertDialog.THEME_HOLO_LIGHT;\r\n\r\n        datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);\r\n        //datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());\r\n\r\n    }\r\n\r\n    private String makeDateString(int day, int month, int year)\r\n    {\r\n        return getMonthFormat(month) + \" \" + day + \" \" + year;\r\n    }\r\n\r\n    private String getMonthFormat(int month)\r\n    {\r\n        if(month == 1)\r\n            return \"JAN\";\r\n        if(month == 2)\r\n            return \"FEB\";\r\n        if(month == 3)\r\n            return \"MAR\";\r\n        if(month == 4)\r\n            return \"APR\";\r\n        if(month == 5)\r\n            return \"MAY\";\r\n        if(month == 6)\r\n            return \"JUN\";\r\n        if(month == 7)\r\n            return \"JUL\";\r\n        if(month == 8)\r\n            return \"AUG\";\r\n        if(month == 9)\r\n            return \"SEP\";\r\n        if(month == 10)\r\n            return \"OCT\";\r\n        if(month == 11)\r\n            return \"NOV\";\r\n        if(month == 12)\r\n            return \"DEC\";\r\n\r\n        //default should never happen\r\n        return \"JAN\";\r\n    }\r\n\r\n    public void openDatePicker(View view)\r\n    {\r\n        datePickerDialog.show();\r\n    }\r\n\r\n    public void popTimePicker(View view)\r\n    {\r\n        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener()\r\n        {\r\n            @Override\r\n            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute)\r\n            {\r\n                hour = selectedHour;\r\n                minute = selectedMinute;\r\n                timeButton.setText(String.format(Locale.getDefault(), \"%02d:%02d\",hour, minute));\r\n            }\r\n        };\r\n\r\n        // int style = AlertDialog.THEME_HOLO_DARK;\r\n        TimePickerDialog timePickerDialog = new TimePickerDialog(this, /*style,*/ onTimeSetListener, hour, minute, true);\r\n        timePickerDialog.setTitle(\"Select Time\");\r\n        timePickerDialog.show();\r\n    }\r\n\r\n    private void getData(){\r\n    databaseReference.child(\"Venue\").addListenerForSingleValueEvent(new ValueEventListener() {\r\n        @Override\r\n        public void onDataChange(@NonNull DataSnapshot snapshot) {\r\n            switch(ParkingLotNo) {\r\n                case \"0001\":\r\n                    Pimage.setImageResource(R.drawable.slideshowone);\r\n                    break;\r\n                case \"0002\":\r\n                    Pimage.setImageResource(R.drawable.slideshowtwo);\r\n                    break;\r\n                case \"0003\":\r\n                    Pimage.setImageResource(R.drawable.slideshowthree);\r\n                    break;\r\n                case \"0004\":\r\n                    Pimage.setImageResource(R.drawable.slideshowfour);\r\n                    break;\r\n                 default:\r\n                     Pimage.setImageResource(R.drawable.slideshowfive);\r\n\r\n            }\r\n\r\n\r\n           Long getAvailableSlots = snapshot.child(ParkingLotNo).child(\"Vavail\").getValue(Long.class);\r\n           String getVenueAddress = snapshot.child(ParkingLotNo).child(\"Vadd\").getValue(String.class);\r\n           String getVenueName = snapshot.child(ParkingLotNo).child(\"Vname\").getValue(String.class);\r\n           Long getVenueRate = snapshot.child(ParkingLotNo).child(\"Vrate\").getValue(Long.class);\r\n           String getrate = Long.toString(getVenueRate);\r\n           String getslots = Long.toString(getAvailableSlots);\r\n\r\n           Padd.setText(getVenueAddress);\r\n           Pname.setText(getVenueName);\r\n           Prate.setText(\"₹ \"+getrate + \"/Hr\");\r\n           Pavail.setText(getslots + \" Slots Available\");\r\n\r\n\r\n        }\r\n        @Override\r\n        public void onCancelled(@NonNull DatabaseError error) {\r\n        }\r\n    });\r\n}\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/park_a_lot/ParkingLot.java b/app/src/main/java/com/example/park_a_lot/ParkingLot.java
+--- a/app/src/main/java/com/example/park_a_lot/ParkingLot.java	(revision 7f9d81e312e711a219cf9ec70c4102be1d219a6d)
++++ b/app/src/main/java/com/example/park_a_lot/ParkingLot.java	(date 1651232396913)
+@@ -12,6 +12,8 @@
+ import android.widget.Button;
+ import android.widget.DatePicker;
+ import android.widget.ImageView;
++import android.widget.RadioButton;
++import android.widget.RadioGroup;
+ import android.widget.TextView;
+ import android.widget.TimePicker;
+ 
+@@ -33,9 +35,10 @@
+     private Button dateButton, timeButton;
+     TextView Pavail, Prate,Padd,Pname;
+     ImageView Pimage;
+-    int hour, minute;
++    int hour, minute, Pcost,cost;
+     String ParkingLotNo;
+-
++    RadioGroup radioGroup;
++    RadioButton radioButton;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+@@ -51,14 +54,13 @@
+         Padd = findViewById(R.id.VenueAddress);
+         Pname = findViewById(R.id.VenueName);
+         Pimage = findViewById(R.id.VenueImage);
++        radioGroup = findViewById(R.id.radioGroup2);
+ 
+         Intent i = getIntent();
+         ParkingLotNo = i.getStringExtra("ParkingLotid");
+-        System.out.println(ParkingLotNo);
+         getData();
+     }
+ 
+-
+     private String getTodaysDate()
+     {
+         Calendar cal = Calendar.getInstance();
+@@ -91,7 +93,6 @@
+ 
+         datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
+         //datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+-
+     }
+ 
+     private String makeDateString(int day, int month, int year)
+@@ -175,26 +176,25 @@
+                      Pimage.setImageResource(R.drawable.slideshowfive);
+ 
+             }
+-
+-
+            Long getAvailableSlots = snapshot.child(ParkingLotNo).child("Vavail").getValue(Long.class);
+            String getVenueAddress = snapshot.child(ParkingLotNo).child("Vadd").getValue(String.class);
+            String getVenueName = snapshot.child(ParkingLotNo).child("Vname").getValue(String.class);
+            Long getVenueRate = snapshot.child(ParkingLotNo).child("Vrate").getValue(Long.class);
+            String getrate = Long.toString(getVenueRate);
+            String getslots = Long.toString(getAvailableSlots);
+-
++           cost = Integer.valueOf(getrate);
+            Padd.setText(getVenueAddress);
+            Pname.setText(getVenueName);
+            Prate.setText("₹ "+getrate + "/Hr");
+            Pavail.setText(getslots + " Slots Available");
+-
+-
+         }
+         @Override
+         public void onCancelled(@NonNull DatabaseError error) {
+         }
+     });
++
++
+ }
+ 
++
+ }
+\ No newline at end of file

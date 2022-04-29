@@ -1,0 +1,203 @@
+Index: app/src/main/java/com/example/park_a_lot/NavBar.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.park_a_lot;\r\nimport android.content.Intent;\r\nimport android.net.Uri;\r\nimport android.os.Bundle;\r\nimport android.view.MenuItem;\r\nimport android.view.View;\r\nimport android.view.Menu;\r\nimport android.widget.Button;\r\n\r\nimport com.google.android.material.snackbar.Snackbar;\r\nimport com.google.android.material.navigation.NavigationView;\r\n\r\nimport androidx.navigation.NavController;\r\nimport androidx.navigation.Navigation;\r\nimport androidx.navigation.ui.AppBarConfiguration;\r\nimport androidx.navigation.ui.NavigationUI;\r\nimport androidx.drawerlayout.widget.DrawerLayout;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport com.example.park_a_lot.databinding.ActivityNavBarBinding;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\n\r\npublic class NavBar extends AppCompatActivity {\r\n\r\n    private AppBarConfiguration mAppBarConfiguration;\r\n    private ActivityNavBarBinding binding;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n\r\n\r\n        binding = ActivityNavBarBinding.inflate(getLayoutInflater());\r\n        setContentView(binding.getRoot());\r\n\r\n        setSupportActionBar(binding.appBarNavBar.toolbar);\r\n        binding.appBarNavBar.fab.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                Intent mailIntent = new Intent(Intent.ACTION_VIEW);\r\n                Uri data = Uri.parse(\"mailto:?subject=\" + \"I have Issues/ Suggestions\"+ \"&body=\" + \"**Thank you for contacting Park A Lot.\\n Please reference your Mobile Number while writing your query.\\n We will get back to you shortly! \" + \"&to=\" + \"parkalot4@gmail.com\");\r\n                mailIntent.setData(data);\r\n                startActivity(Intent.createChooser(mailIntent, \"Contact Us\"));\r\n            }\r\n        });\r\n        DrawerLayout drawer = binding.drawerLayout;\r\n        NavigationView navigationView = binding.navView;\r\n        // Passing each menu ID as a set of Ids because each\r\n        // menu should be considered as top level destinations.\r\n        mAppBarConfiguration = new AppBarConfiguration.Builder(\r\n                R.id.nav_home, R.id.nav_dashboard, R.id.nav_aboutus)\r\n                .setOpenableLayout(drawer)\r\n                .build();\r\n        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_nav_bar);\r\n        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);\r\n        NavigationUI.setupWithNavController(navigationView, navController);\r\n    }\r\n\r\n    @Override\r\n    public boolean onCreateOptionsMenu(Menu menu) {\r\n        // Inflate the menu; this adds items to the action bar if it is present.\r\n        getMenuInflater().inflate(R.menu.nav_bar, menu);\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean onOptionsItemSelected(MenuItem item) {\r\n        switch (item.getItemId()){\r\n            case R.id.action_logout:\r\n                FirebaseAuth.getInstance().signOut();\r\n                startActivity(new Intent(getApplicationContext(), Login.class));\r\n                finish();\r\n                return  true;\r\n\r\n            default:\r\n                return super.onOptionsItemSelected(item);\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public boolean onSupportNavigateUp() {\r\n        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_nav_bar);\r\n        return NavigationUI.navigateUp(navController, mAppBarConfiguration)\r\n                || super.onSupportNavigateUp();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/park_a_lot/NavBar.java b/app/src/main/java/com/example/park_a_lot/NavBar.java
+--- a/app/src/main/java/com/example/park_a_lot/NavBar.java	(revision a76df4eee639e8e64d9c2dffae1726c3f65dc623)
++++ b/app/src/main/java/com/example/park_a_lot/NavBar.java	(date 1651069254198)
+@@ -6,6 +6,7 @@
+ import android.view.View;
+ import android.view.Menu;
+ import android.widget.Button;
++import android.widget.TextView;
+ 
+ import com.google.android.material.snackbar.Snackbar;
+ import com.google.android.material.navigation.NavigationView;
+@@ -24,12 +25,12 @@
+ 
+     private AppBarConfiguration mAppBarConfiguration;
+     private ActivityNavBarBinding binding;
+-
++    String ProfilePhone, ProfileName, ProfileEmail,ProfilePassword,ProfileVecnumber, Profilevectype;
++    TextView VariableProfileName;
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+-
+-
++        showalluserdata();
+         binding = ActivityNavBarBinding.inflate(getLayoutInflater());
+         setContentView(binding.getRoot());
+ 
+@@ -45,6 +46,7 @@
+         });
+         DrawerLayout drawer = binding.drawerLayout;
+         NavigationView navigationView = binding.navView;
++
+         // Passing each menu ID as a set of Ids because each
+         // menu should be considered as top level destinations.
+         mAppBarConfiguration = new AppBarConfiguration.Builder(
+@@ -56,6 +58,31 @@
+         NavigationUI.setupWithNavController(navigationView, navController);
+     }
+ 
++    private void showalluserdata() {
++        VariableProfileName = findViewById(R.id.navheadername);
++        Intent i = getIntent();
++        ProfilePhone = i.getStringExtra("ProfilePhone");
++        ProfileEmail =  i.getStringExtra("ProfileEmail");
++        ProfileName =  i.getStringExtra("ProfileName");
++        ProfileVecnumber =  i.getStringExtra("ProfileVecnumber");
++        Profilevectype =  i.getStringExtra("ProfileVectype");
++        ProfilePassword =  i.getStringExtra("ProfilePassword");
++
++        System.out.println(ProfileEmail);
++        System.out.println(ProfilePhone);
++        System.out.println(ProfileName);
++        System.out.println(ProfileVecnumber);
++        System.out.println(Profilevectype);
++        System.out.println(ProfilePassword);
++
++
++
++       // NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
++       // VariableProfileName= navigationView.getHeaderView(0).findViewById(R.id.navheadername);
++      //  View headerLayout = navigationView.inflateHeaderView(R.layout.nav_header_nav_bar);
++        //VariableProfileName.setText(ProfileName);
++    }
++
+     @Override
+     public boolean onCreateOptionsMenu(Menu menu) {
+         // Inflate the menu; this adds items to the action bar if it is present.
+Index: app/src/main/java/com/example/park_a_lot/Registration.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.park_a_lot;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.text.TextUtils;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\nimport android.widget.RadioButton;\r\nimport android.widget.RadioGroup;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\nimport com.google.firebase.database.DatabaseReference;\r\nimport com.google.firebase.database.FirebaseDatabase;\r\n\r\npublic class Registration extends AppCompatActivity {\r\n    private Button Submit;\r\n    TextView Relogin;\r\n    EditText regName,regEmail,regPassword,regVecnumber, regConpassword;\r\n    RadioGroup radioGroup;\r\n    RadioButton radioButton;\r\n    String userPhone, userName, userEmail,userPassword,userConfirmpassword,userVecnumber, userRegvectype;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_registration);\r\n        Submit = findViewById(R.id.regSubmitbutton);\r\n        regName = findViewById(R.id.regName);\r\n        regEmail = findViewById(R.id.regEmail);\r\n        regPassword = findViewById(R.id.regPassword);\r\n        regVecnumber = findViewById(R.id.regVecNumber);\r\n        regConpassword= findViewById(R.id.regConPassword);\r\n        radioGroup = findViewById(R.id.radioGroup);\r\n        Relogin = findViewById(R.id.regloginHere);\r\n\r\n\r\n        Relogin.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                startActivity(new Intent(getApplicationContext(), Login.class));\r\n            }\r\n        });\r\n\r\n        Submit.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                //Getting all user values to prepare them for database entry\r\n                Intent i = getIntent();\r\n                userPhone = i.getStringExtra(\"UserPhone\");\r\n                userName = regName.getText().toString();\r\n                userEmail = regEmail.getText().toString();\r\n                userPassword = regPassword.getText().toString();\r\n                userConfirmpassword = regConpassword.getText().toString();\r\n                userVecnumber = regVecnumber.getText().toString();\r\n\r\n                int radioId = radioGroup.getCheckedRadioButtonId();\r\n                radioButton = findViewById(radioId);\r\n                userRegvectype = radioButton.getText().toString();\r\n\r\n\r\n                //String Validating Conditions\r\n                if(TextUtils.isEmpty(userName) || TextUtils.isEmpty(userEmail) || TextUtils.isEmpty(userPassword) || TextUtils.isEmpty(userConfirmpassword) )\r\n                {\r\n                    Toast.makeText(Registration.this,\"All Fields are Required\", Toast.LENGTH_SHORT).show();\r\n                    regName.setError(\"Name is Required.\");\r\n                    regEmail.setError(\"Email is Required.\");\r\n                    regPassword.setError(\"Password is Required.\");\r\n                    regConpassword.setError(\"Password is Required.\");\r\n                }\r\n\r\n                else {\r\n                    if (userPassword.equals(userConfirmpassword) && userPassword.length() > 6) {\r\n                        //If Everything is in constraints we initiate the process of adding this user\r\n                        storeNewUsersData();\r\n                        startActivity(new Intent(Registration.this, Login.class));\r\n                    }\r\n                    else {\r\n                        if (userPassword.length() <= 6) {\r\n                            regPassword.setError(\"Password must have atleast 7 characters\");\r\n                            Toast.makeText(Registration.this, \"Password too short!\", Toast.LENGTH_LONG).show();\r\n                        } else {\r\n                            regConpassword.setError(\"Password does not match.\");\r\n                            Toast.makeText(Registration.this, \"Password does not match!\", Toast.LENGTH_SHORT).show();\r\n                        }\r\n                    }\r\n                }\r\n\r\n                if (TextUtils.isEmpty(userVecnumber)) {\r\n                    regVecnumber.setError(\"Vehicle Number is Required.\");\r\n                }\r\n                else if(userVecnumber.length()!=10){\r\n                    regVecnumber.setError(\"Enter a valid number.\");\r\n                }\r\n\r\n\r\n\r\n            }\r\n        });\r\n\r\n\r\n    }\r\n//Storing Users in Firebase\r\n    private void storeNewUsersData() {\r\n        FirebaseDatabase rootNode = FirebaseDatabase.getInstance();\r\n        DatabaseReference reference = rootNode.getReference(\"Users\");\r\n        UserHelperClass addNewUser = new UserHelperClass(userName,userEmail,userPassword,userPhone,userVecnumber,userRegvectype);\r\n        reference.child(userPhone).setValue(addNewUser);\r\n        Toast.makeText(Registration.this, \"\\t\\t\\t\\t\\t\\t\\t\\tRegistration Successful!\\nYou can now Login with these Credentials \", Toast.LENGTH_LONG).show();\r\n    }\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/park_a_lot/Registration.java b/app/src/main/java/com/example/park_a_lot/Registration.java
+--- a/app/src/main/java/com/example/park_a_lot/Registration.java	(revision a76df4eee639e8e64d9c2dffae1726c3f65dc623)
++++ b/app/src/main/java/com/example/park_a_lot/Registration.java	(date 1651077587675)
+@@ -96,8 +96,6 @@
+                     regVecnumber.setError("Enter a valid number.");
+                 }
+ 
+-
+-
+             }
+         });
+ 
+Index: app/src/main/java/com/example/park_a_lot/Login.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.park_a_lot;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.provider.ContactsContract;\r\nimport android.telephony.SmsManager;\r\nimport android.util.Log;\r\nimport android.util.Patterns;\r\nimport android.view.View;\r\nimport android.view.Window;\r\nimport android.view.WindowManager;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\nimport android.widget.ImageButton;\r\nimport android.widget.ImageView;\r\nimport android.widget.ProgressBar;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\nimport com.google.android.gms.auth.api.signin.GoogleSignIn;\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInAccount;\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInClient;\r\nimport com.google.android.gms.auth.api.signin.GoogleSignInOptions;\r\nimport com.google.android.gms.common.api.ApiException;\r\nimport com.google.android.gms.tasks.OnCompleteListener;\r\nimport com.google.android.gms.tasks.Task;\r\nimport com.google.firebase.auth.AuthCredential;\r\nimport com.google.firebase.auth.AuthResult;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\nimport com.google.firebase.auth.GoogleAuthProvider;\r\nimport com.google.firebase.database.DataSnapshot;\r\nimport com.google.firebase.database.DatabaseError;\r\nimport com.google.firebase.database.DatabaseReference;\r\nimport com.google.firebase.database.FirebaseDatabase;\r\nimport com.google.firebase.database.ValueEventListener;\r\n\r\npublic class Login extends AppCompatActivity {\r\n    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl(\"https://parkalot-b98ef-default-rtdb.firebaseio.com/\");\r\n    TextView mRegister;\r\n    private GoogleSignInClient mGoogleSignInClient;\r\n    private final static  int RC_SIGN_IN = 123;\r\n    private FirebaseAuth mAuth;\r\n\r\n    private EditText editTextMobile, editTextPassword;\r\n    private Button signIn;\r\n    private ImageView signInOtp;\r\n\r\n\r\n    @Override\r\n    protected void onStart() {\r\n        super.onStart();\r\n        FirebaseUser user = mAuth.getCurrentUser();\r\n       if(user!=null){\r\n           Intent intent = new Intent(getApplicationContext(),NavBar.class); // CHANGE TO PROFILE PAGE\r\n           startActivity(intent);\r\n    }\r\n    }\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        requestWindowFeature(Window.FEATURE_NO_TITLE);\r\n        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);\r\n        getSupportActionBar().hide();\r\n        setContentView(R.layout.activity_login);\r\n        mRegister = findViewById(R.id.RegisterHere);\r\n\r\n        //login\r\n        signIn =findViewById(R.id.Loginbutton);\r\n        editTextMobile=findViewById(R.id.logName);\r\n        editTextPassword=findViewById(R.id.logPassword) ;\r\n\r\n\r\n\r\n        //Google Register\r\n        mAuth = FirebaseAuth.getInstance();\r\n        createRequest();\r\n        findViewById(R.id.GoogleLogin).setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                signIn();\r\n            }\r\n        });\r\n\r\n        mRegister.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                startActivity(new Intent(getApplicationContext(), MobileRegistration.class));\r\n            }\r\n        });\r\n        signInOtp = findViewById(R.id.OTPLogin);\r\n        signInOtp.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                startActivity(new Intent(getApplicationContext(), MobileRegistration.class));\r\n            }\r\n        });\r\n\r\n\r\n        signIn.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                userLogin();\r\n            }\r\n        });\r\n    }\r\n\r\n    private void userLogin() {\r\n        String mobile = editTextMobile.getText().toString().trim();\r\n        String password = editTextPassword.getText().toString().trim();\r\n\r\n        if(mobile.isEmpty() || password.isEmpty()){\r\n            Toast.makeText(Login.this, \"Mobile No and Password are required \", Toast.LENGTH_SHORT).show();\r\n        }\r\n        else\r\n        {\r\n            databaseReference.child(\"Users\").addListenerForSingleValueEvent(new ValueEventListener() {\r\n                @Override\r\n                public void onDataChange(@NonNull DataSnapshot snapshot) {\r\n                    if(snapshot.hasChild(mobile)) {\r\n                        final String getPassword = snapshot.child(mobile).child(\"upassword\").getValue(String.class);\r\n                        if (getPassword.equals(password)) {\r\n                            Toast.makeText(Login.this, \"Welcome back! \", Toast.LENGTH_SHORT).show();\r\n                            startActivity(new Intent(Login.this,NavBar.class));\r\n                        }\r\n                        else{\r\n                            Toast.makeText(Login.this, \"Wrong Password! \", Toast.LENGTH_SHORT).show();\r\n                        }\r\n                    }\r\n                    else{\r\n                        Toast.makeText(Login.this, \"User does not exist! \", Toast.LENGTH_SHORT).show();\r\n                    }\r\n                }\r\n                @Override\r\n                public void onCancelled(@NonNull DatabaseError error) {\r\n                }\r\n            });\r\n        }\r\n    }\r\n\r\n    //Google Register code\r\n    private void createRequest() {\r\n        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)\r\n                .requestIdToken(getString(R.string.default_web_client_id1))\r\n                .requestEmail()\r\n                .build();\r\n        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);\r\n    }\r\n    private void signIn() {\r\n        Intent signInIntent = mGoogleSignInClient.getSignInIntent();\r\n        startActivityForResult(signInIntent, RC_SIGN_IN);\r\n    }\r\n\r\n    @Override\r\n    public void onActivityResult(int requestCode, int resultCode, Intent data) {\r\n        super.onActivityResult(requestCode, resultCode, data);\r\n        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);\r\n        if (requestCode == RC_SIGN_IN) {\r\n            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);\r\n            try {\r\n                // Google Sign In was successful, authenticate with Firebase\r\n                GoogleSignInAccount account = task.getResult(ApiException.class);\r\n                // Log.d(TAG, \"firebaseAuthWithGoogle:\" + account.getId());\r\n                assert account != null;\r\n                firebaseAuthWithGoogle(account.getIdToken());\r\n            } catch (ApiException e) {\r\n                // Google Sign In failed, update UI appropriately\r\n                Toast.makeText(this,e.getMessage() , Toast.LENGTH_SHORT).show();\r\n            }\r\n        }\r\n    }\r\n\r\n    private void firebaseAuthWithGoogle(String idToken) {\r\n\r\n        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);\r\n        mAuth.signInWithCredential(credential)\r\n                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {\r\n                    @Override\r\n                    public void onComplete(@NonNull Task<AuthResult> task) {\r\n                        if (task.isSuccessful()) {\r\n                            // Sign in success, update UI with the signed-in user's information\r\n                            FirebaseUser user = mAuth.getCurrentUser();\r\n                            Intent intent = new Intent(getApplicationContext(),NavBar.class); // CHANGE TO PROFILE PAGE\r\n                            startActivity(intent);\r\n                        } else {\r\n                            // If sign in fails, display a message to the user.\r\n                            Toast.makeText(Login.this, \"Sorry looks like your Login car hit a wall! \", Toast.LENGTH_SHORT).show();\r\n\r\n                        }\r\n                    }\r\n                });\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/park_a_lot/Login.java b/app/src/main/java/com/example/park_a_lot/Login.java
+--- a/app/src/main/java/com/example/park_a_lot/Login.java	(revision a76df4eee639e8e64d9c2dffae1726c3f65dc623)
++++ b/app/src/main/java/com/example/park_a_lot/Login.java	(date 1651068492531)
+@@ -125,7 +125,20 @@
+                         final String getPassword = snapshot.child(mobile).child("upassword").getValue(String.class);
+                         if (getPassword.equals(password)) {
+                             Toast.makeText(Login.this, "Welcome back! ", Toast.LENGTH_SHORT).show();
+-                            startActivity(new Intent(Login.this,NavBar.class));
++                            String uemail =snapshot.child(mobile).child("uemail").getValue(String.class);
++                            String uname =snapshot.child(mobile).child("uname").getValue(String.class);
++                            String uvecnumber =snapshot.child(mobile).child("uvecnumber").getValue(String.class);
++                            String uvectype =snapshot.child(mobile).child("uvectype").getValue(String.class);
++
++                            Intent i = new Intent(getApplicationContext(), NavBar.class);
++                            i.putExtra("ProfilePhone",mobile);
++                            i.putExtra("ProfileEmail",uemail);
++                            i.putExtra("ProfileName",uname);
++                            i.putExtra("ProfileVecnumber",uvecnumber);
++                            i.putExtra("ProfileVectype",uvectype);
++                            i.putExtra("ProfilePassword",password);
++                            startActivity(i);
++                            finish();
+                         }
+                         else{
+                             Toast.makeText(Login.this, "Wrong Password! ", Toast.LENGTH_SHORT).show();
+Index: app/src/main/res/layout/nav_header_nav_bar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"@dimen/nav_header_height\"\r\n    android:background=\"@drawable/side_nav_bar\"\r\n    android:gravity=\"bottom\"\r\n    android:orientation=\"vertical\"\r\n    android:paddingLeft=\"@dimen/activity_horizontal_margin\"\r\n    android:paddingTop=\"@dimen/activity_vertical_margin\"\r\n    android:paddingRight=\"@dimen/activity_horizontal_margin\"\r\n    android:paddingBottom=\"@dimen/activity_vertical_margin\"\r\n    android:theme=\"@style/ThemeOverlay.AppCompat.Dark\">\r\n\r\n    <ImageView\r\n        android:id=\"@+id/imageView\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:contentDescription=\"@string/nav_header_desc\"\r\n        android:paddingTop=\"@dimen/nav_header_vertical_spacing\"\r\n        app:srcCompat=\"@mipmap/ic_launcher_round\" />\r\n\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:paddingTop=\"@dimen/nav_header_vertical_spacing\"\r\n        android:text=\"@string/nav_header_title\"\r\n        android:textAppearance=\"@style/TextAppearance.AppCompat.Body1\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"@string/nav_header_subtitle\" />\r\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/nav_header_nav_bar.xml b/app/src/main/res/layout/nav_header_nav_bar.xml
+--- a/app/src/main/res/layout/nav_header_nav_bar.xml	(revision a76df4eee639e8e64d9c2dffae1726c3f65dc623)
++++ b/app/src/main/res/layout/nav_header_nav_bar.xml	(date 1651069361857)
+@@ -1,6 +1,7 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:id="@+id/header"
+     android:layout_width="match_parent"
+     android:layout_height="@dimen/nav_header_height"
+     android:background="@drawable/side_nav_bar"
+@@ -21,15 +22,12 @@
+         app:srcCompat="@mipmap/ic_launcher_round" />
+ 
+     <TextView
++        android:id="@+id/navheadername"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:paddingTop="@dimen/nav_header_vertical_spacing"
+-        android:text="@string/nav_header_title"
++        android:text="Ajinkya"
+         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+ 
+-    <TextView
+-        android:id="@+id/textView"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:text="@string/nav_header_subtitle" />
++
+ </LinearLayout>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_main.xml\" value=\"0.17074275362318841\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_mobile_registration.xml\" value=\"0.264\" />\r\n        <entry key=\"..\\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_registration.xml\" value=\"0.264\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/aboutus_bg.xml\" value=\"0.1675\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/btn_bg.xml\" value=\"0.1675\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/rounded_edittext.xml\" value=\"0.1675\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/side_nav_bar.xml\" value=\"0.1675\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_booking_page.xml\" value=\"0.2\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_login.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_mobile_registration.xml\" value=\"0.25\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_nav_bar.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_navigation.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/activity_registration.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/app_bar_nav_bar.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/app_bar_navigation.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/content_booking_page.xml\" value=\"0.18\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/content_nav_bar.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/content_navigation.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_aboutus.xml\" value=\"0.22\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_dashboard.xml\" value=\"0.2\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_first.xml\" value=\"0.18\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_gallery.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_home.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/fragment_slideshow.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/nav_header_nav_bar.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/nav_header_navigation.xml\" value=\"0.18645833333333334\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/menu/activity_main_drawer.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/menu/nav_bar.xml\" value=\"0.33\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"Android Studio default JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision a76df4eee639e8e64d9c2dffae1726c3f65dc623)
++++ b/.idea/misc.xml	(date 1651068492543)
+@@ -3,9 +3,21 @@
+   <component name="DesignSurface">
+     <option name="filePathToZoomLevelMap">
+       <map>
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_dummy.xml" value="0.2540983606557377" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_login.xml" value="0.2540983606557377" />
+         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
+         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_mobile_registration.xml" value="0.264" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_nav_bar.xml" value="0.3624454148471616" />
+         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_registration.xml" value="0.264" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/app_bar_nav_bar.xml" value="0.5714285714285714" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/buttonstyle.xml" value="0.5714285714285714" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/content_nav_bar.xml" value="0.5714285714285714" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/fragment_dashboard.xml" value="0.5714285714285714" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/fragment_home.xml" value="0.5714285714285714" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/gradientbackground.xml" value="0.5714285714285714" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/nav_header_nav_bar.xml" value="0.72" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/menu/activity_main_drawer.xml" value="0.536" />
++        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/menu/nav_bar.xml" value="0.72" />
+         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/aboutus_bg.xml" value="0.1675" />
+         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/btn_bg.xml" value="0.1675" />
+         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/rounded_edittext.xml" value="0.1675" />
+@@ -30,7 +42,6 @@
+         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/nav_header_nav_bar.xml" value="0.18645833333333334" />
+         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/layout/nav_header_navigation.xml" value="0.18645833333333334" />
+         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
+-        <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/menu/nav_bar.xml" value="0.33" />
+       </map>
+     </option>
+   </component>
