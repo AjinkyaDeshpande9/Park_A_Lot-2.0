@@ -9,6 +9,7 @@ import android.widget.Button;
 
 public class BookingPage extends AppCompatActivity {
     Button parkingbookbtn1, parkingbookbtn2, parkingbookbtn3, parkingbookbtn4;
+    String ParkingLotNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,28 +23,40 @@ public class BookingPage extends AppCompatActivity {
         parkingbookbtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), ParkingLot1.class));
+                ParkingLotNo ="0001";
+                Intent i = new Intent(getApplicationContext(), ParkingLot.class);
+                i.putExtra("ParkingLotid",ParkingLotNo);
+                startActivity(i);
             }
         });
 
         parkingbookbtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), ParkingLot2.class));
+                ParkingLotNo ="0002";
+                Intent i = new Intent(getApplicationContext(), ParkingLot.class);
+                i.putExtra("ParkingLotid",ParkingLotNo);
+                startActivity(i);
             }
         });
 
         parkingbookbtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), ParkingLot3.class));
+                ParkingLotNo ="0003";
+                Intent i = new Intent(getApplicationContext(), ParkingLot.class);
+                i.putExtra("ParkingLotid",ParkingLotNo);
+                startActivity(i);
             }
         });
 
         parkingbookbtn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), ParkingLot4.class));
+                ParkingLotNo ="0004";
+                Intent i = new Intent(getApplicationContext(), ParkingLot.class);
+                i.putExtra("ParkingLotid",ParkingLotNo);
+                startActivity(i);
             }
         });
     }

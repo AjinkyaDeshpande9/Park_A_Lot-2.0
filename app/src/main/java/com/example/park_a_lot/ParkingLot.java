@@ -1,34 +1,63 @@
 package com.example.park_a_lot;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.TimePicker;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 import java.util.Locale;
 
-public class ParkingLot2 extends AppCompatActivity {
+public class ParkingLot extends AppCompatActivity {
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference =
+            FirebaseDatabase.getInstance().getReferenceFromUrl("https://parkalot-b98ef-default-rtdb.firebaseio.com/");
 
     private DatePickerDialog datePickerDialog;
     private Button dateButton, timeButton;
+    TextView Pavail, Prate,Padd,Pname;
+    ImageView Pimage;
     int hour, minute;
+    String ParkingLotNo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        firebaseDatabase = FirebaseDatabase.getInstance();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_parking_lot2);
+        setContentView(R.layout.activity_parking_lot);
         initDatePicker();
         dateButton = findViewById(R.id.datePickerButton);
         dateButton.setText(getTodaysDate());
         timeButton = findViewById(R.id.timeButton);
+        Pavail = findViewById(R.id.VenueAvail);
+        Prate = findViewById(R.id.VenueRate);
+        Padd = findViewById(R.id.VenueAddress);
+        Pname = findViewById(R.id.VenueName);
+        Pimage = findViewById(R.id.VenueImage);
+
+        Intent i = getIntent();
+        ParkingLotNo = i.getStringExtra("ParkingLotid");
+        System.out.println(ParkingLotNo);
+        getData();
     }
+
 
     private String getTodaysDate()
     {
@@ -120,10 +149,52 @@ public class ParkingLot2 extends AppCompatActivity {
         };
 
         // int style = AlertDialog.THEME_HOLO_DARK;
-
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, /*style,*/ onTimeSetListener, hour, minute, true);
-
         timePickerDialog.setTitle("Select Time");
         timePickerDialog.show();
     }
+
+    private void getData(){
+    databaseReference.child("Venue").addListenerForSingleValueEvent(new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot snapshot) {
+            switch(ParkingLotNo) {
+                case "0001":
+                    Pimage.setImageResource(R.drawable.slideshowone);
+                    break;
+                case "0002":
+                    Pimage.setImageResource(R.drawable.slideshowtwo);
+                    break;
+                case "0003":
+                    Pimage.setImageResource(R.drawable.slideshowthree);
+                    break;
+                case "0004":
+                    Pimage.setImageResource(R.drawable.slideshowfour);
+                    break;
+                 default:
+                     Pimage.setImageResource(R.drawable.slideshowfive);
+
+            }
+
+
+           Long getAvailableSlots = snapshot.child(ParkingLotNo).child("Vavail").getValue(Long.class);
+           String getVenueAddress = snapshot.child(ParkingLotNo).child("Vadd").getValue(String.class);
+           String getVenueName = snapshot.child(ParkingLotNo).child("Vname").getValue(String.class);
+           Long getVenueRate = snapshot.child(ParkingLotNo).child("Vrate").getValue(Long.class);
+           String getrate = Long.toString(getVenueRate);
+           String getslots = Long.toString(getAvailableSlots);
+
+           Padd.setText(getVenueAddress);
+           Pname.setText(getVenueName);
+           Prate.setText("₹ "+getrate + "/Hr");
+           Pavail.setText(getslots + " Slots Available");
+
+
+        }
+        @Override
+        public void onCancelled(@NonNull DatabaseError error) {
+        }
+    });
+}
+
 }

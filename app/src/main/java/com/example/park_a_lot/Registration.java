@@ -96,8 +96,6 @@ public class Registration extends AppCompatActivity {
                     regVecnumber.setError("Enter a valid number.");
                 }
 
-
-
             }
         });
 

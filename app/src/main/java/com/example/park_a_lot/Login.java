@@ -39,7 +39,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://parkalot-b98ef-default-rtdb.firebaseio.com/");
+    DatabaseReference databaseReference =
+            FirebaseDatabase.getInstance().getReferenceFromUrl("https://parkalot-b98ef-default-rtdb.firebaseio.com/");
     TextView mRegister;
     private GoogleSignInClient mGoogleSignInClient;
     private final static  int RC_SIGN_IN = 123;
@@ -125,7 +126,20 @@ public class Login extends AppCompatActivity {
                         final String getPassword = snapshot.child(mobile).child("upassword").getValue(String.class);
                         if (getPassword.equals(password)) {
                             Toast.makeText(Login.this, "Welcome back! ", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(Login.this,NavBar.class));
+                            String uemail =snapshot.child(mobile).child("uemail").getValue(String.class);
+                            String uname =snapshot.child(mobile).child("uname").getValue(String.class);
+                            String uvecnumber =snapshot.child(mobile).child("uvecnumber").getValue(String.class);
+                            String uvectype =snapshot.child(mobile).child("uvectype").getValue(String.class);
+
+                            Intent i = new Intent(getApplicationContext(), NavBar.class);
+                            i.putExtra("ProfilePhone",mobile);
+                            i.putExtra("ProfileEmail",uemail);
+                            i.putExtra("ProfileName",uname);
+                            i.putExtra("ProfileVecnumber",uvecnumber);
+                            i.putExtra("ProfileVectype",uvectype);
+                            i.putExtra("ProfilePassword",password);
+                            startActivity(i);
+                            finish();
                         }
                         else{
                             Toast.makeText(Login.this, "Wrong Password! ", Toast.LENGTH_SHORT).show();

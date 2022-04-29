@@ -3,6 +3,7 @@
     package="com.example.park_a_lot">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,16 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ParkALot">
         <activity
-            android:name=".ParkingLot4"
-            android:exported="false" />
-        <activity
-            android:name=".ParkingLot3"
-            android:exported="false" />
-        <activity
-            android:name=".ParkingLot2"
-            android:exported="false" />
-        <activity
-            android:name=".ParkingLot1"
+            android:name=".ParkingLot"
             android:exported="false" />
         <activity
             android:name=".BookingPage"

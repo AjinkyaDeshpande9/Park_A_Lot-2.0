@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -24,12 +25,12 @@ public class NavBar extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityNavBarBinding binding;
-
+    String ProfilePhone, ProfileName, ProfileEmail,ProfilePassword,ProfileVecnumber, Profilevectype;
+    TextView VariableProfileName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
+        showalluserdata();
         binding = ActivityNavBarBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -45,6 +46,7 @@ public class NavBar extends AppCompatActivity {
         });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -54,6 +56,31 @@ public class NavBar extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_nav_bar);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+    }
+
+    private void showalluserdata() {
+        VariableProfileName = findViewById(R.id.navheadername);
+        Intent i = getIntent();
+        ProfilePhone = i.getStringExtra("ProfilePhone");
+        ProfileEmail =  i.getStringExtra("ProfileEmail");
+        ProfileName =  i.getStringExtra("ProfileName");
+        ProfileVecnumber =  i.getStringExtra("ProfileVecnumber");
+        Profilevectype =  i.getStringExtra("ProfileVectype");
+        ProfilePassword =  i.getStringExtra("ProfilePassword");
+
+        System.out.println(ProfileEmail);
+        System.out.println(ProfilePhone);
+        System.out.println(ProfileName);
+        System.out.println(ProfileVecnumber);
+        System.out.println(Profilevectype);
+        System.out.println(ProfilePassword);
+
+
+
+       // NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+       // VariableProfileName= navigationView.getHeaderView(0).findViewById(R.id.navheadername);
+      //  View headerLayout = navigationView.inflateHeaderView(R.layout.nav_header_nav_bar);
+        //VariableProfileName.setText(ProfileName);
     }
 
     @Override
