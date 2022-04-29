@@ -143,6 +143,17 @@
         app:layout_constraintStart_toStartOf="@+id/ParkingDateStart"
         app:layout_constraintTop_toBottomOf="@+id/ComfirmedText" />
 
+    <ImageView
+        android:id="@+id/CalenderIcon"
+        android:layout_width="49dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/ParkingDateStart"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ComfirmedText"
+        app:srcCompat="@drawable/calendericon" />
+
     <TextView
         android:id="@+id/ParkingTimeEnd"
         android:layout_width="100dp"
@@ -156,17 +167,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/ParkingDateEnd"
         app:layout_constraintTop_toBottomOf="@+id/ComfirmedText" />
-
-    <ImageView
-        android:id="@+id/CalenderIcon"
-        android:layout_width="49dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toStartOf="@+id/ParkingDateStart"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ComfirmedText"
-        app:srcCompat="@drawable/calendericon" />
 
     <TextView
         android:id="@+id/ParkingRateText"
