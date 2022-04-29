@@ -61,6 +61,8 @@ public class BookingSummary extends AppCompatActivity {
                 i2.putExtra("ParkingDuration2",SParkingDuration);
                 i2.putExtra("RawRate2", RawRate);
                 startActivity(i2);
+
+
             }
         });
         System.out.println("Parking cost "+SParkingCost);
