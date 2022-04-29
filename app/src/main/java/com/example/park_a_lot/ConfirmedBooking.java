@@ -63,7 +63,7 @@ public class ConfirmedBooking extends AppCompatActivity {
         CVenueAddress.setText(CParkingAddress);
         CVenueDate.setText(CParkingDate);
         CVenueTime.setText(CParkingTime);
-        CVenueCost.setText(CParkingCost);
+        CVenueCost.setText("₹ "+CParkingCost);
         CVenueEndDate.setText(CParkingDate);
         CVenueEndTime.setText(CParkingEndTime);
         CVenueParkingRate.setText(CRawRate);
