@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ import com.google.android.gms.common.util.SharedPreferencesUtils;
 public class BookingSummary extends AppCompatActivity {
     String SParkingCost,SParkingTime, SParkingDate,SParkingVenue,SParkingAddress,SParkingEndTime,SParkingDuration;
     TextView SVenueName,SVenueAddress,SVenueDate, SVenueDuration,SVenueTime, SVenueCost;
+    Button ConfirmButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class BookingSummary extends AppCompatActivity {
         SVenueDuration = findViewById(R.id.ConfirmDuration);
         SVenueTime = findViewById(R.id.ConfirmTime);
         SVenueCost = findViewById(R.id.GrandTotal);
+        ConfirmButton = findViewById(R.id.ConfirmtoBook);
 
         SVenueName.setText(SParkingVenue);
         SVenueAddress.setText(SParkingAddress);
@@ -40,6 +43,12 @@ public class BookingSummary extends AppCompatActivity {
         SVenueTime.setText(SParkingTime);
         SVenueCost.setText(SParkingCost);
 
+        ConfirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ConfirmedBooking.class));
+            }
+        });
         System.out.println("Parking cost "+SParkingCost);
 //        System.out.println("Parking Date "+SParkingDate );
 //        System.out.println("Parking Time "+SParkingTime);

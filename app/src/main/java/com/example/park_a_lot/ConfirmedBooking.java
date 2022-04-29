@@ -1,6 +1,8 @@
 package com.example.park_a_lot;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,7 +24,10 @@ public class ConfirmedBooking extends AppCompatActivity {
         BackToHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), HomeFragment.class));
+
+                Fragment fragment = new HomeFragment();
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container,fragment ).commit();
             }
         });
     }
