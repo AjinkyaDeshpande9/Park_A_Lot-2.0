@@ -1,11 +1,12 @@
 package com.example.park_a_lot;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 
 public class BookingPage extends AppCompatActivity {
     Button parkingbookbtn1, parkingbookbtn2, parkingbookbtn3, parkingbookbtn4;
@@ -19,6 +20,8 @@ public class BookingPage extends AppCompatActivity {
         parkingbookbtn2 = findViewById(R.id.parkingBookbtn2);
         parkingbookbtn3 = findViewById(R.id.parkingBookbtn3);
         parkingbookbtn4 = findViewById(R.id.parkingBookbtn4);
+
+
 
         parkingbookbtn1.setOnClickListener(new View.OnClickListener() {
             @Override

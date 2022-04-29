@@ -90,7 +90,7 @@
         app:srcCompat="@drawable/cashicon" />
 
     <TextView
-        android:id="@+id/ConfirmTime"
+        android:id="@+id/SummaryTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -116,7 +116,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ConfirmTime" />
+        app:layout_constraintTop_toBottomOf="@+id/SummaryTime" />
 
     <TextView
         android:id="@+id/textView20"
@@ -145,7 +145,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView20">
 
         <RadioButton
-            android:id="@+id/radioButton7"
+            android:id="@+id/radio1Hour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -154,7 +154,7 @@
             android:buttonTint="#0D1723" />
 
         <RadioButton
-            android:id="@+id/radioButton6"
+            android:id="@+id/radio2Hour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -162,7 +162,7 @@
             android:buttonTint="#0D1723"/>
 
         <RadioButton
-            android:id="@+id/radioButton5"
+            android:id="@+id/radio3Hour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -206,14 +206,14 @@
         android:id="@+id/ProceedtoSummary"
         android:layout_width="148dp"
         android:layout_height="51dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/btn_bg"
         android:text="Proceed"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.762"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeButton" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

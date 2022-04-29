@@ -8,10 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.gms.common.util.SharedPreferencesUtils;
-
 public class BookingSummary extends AppCompatActivity {
-    String SParkingCost,SParkingTime, SParkingDate,SParkingVenue,SParkingAddress,SParkingEndTime,SParkingDuration;
+    String SParkingCost,SParkingTime, SParkingDate,SParkingVenue,SParkingAddress,SParkingEndTime,SParkingDuration, RawRate;
     TextView SVenueName,SVenueAddress,SVenueDate, SVenueDuration,SVenueTime, SVenueCost;
     Button ConfirmButton;
 
@@ -20,20 +18,21 @@ public class BookingSummary extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_summary);
         Intent i = getIntent();
-        SParkingTime = i.getStringExtra("ParkingTime");
-        SParkingDate = i.getStringExtra("ParkingDate");
-        SParkingCost = i.getStringExtra("ParkingCost");
-        SParkingVenue = i.getStringExtra("ParkingVenue");
-        SParkingAddress = i.getStringExtra("ParkingAddress");
-        SParkingEndTime = i.getStringExtra("ParkingEndTime");
+        SParkingTime     = i.getStringExtra    ("ParkingTime");
+        SParkingDate     = i.getStringExtra    ("ParkingDate");
+        SParkingCost     = i.getStringExtra    ("ParkingCost");
+        SParkingVenue    = i.getStringExtra   ("ParkingVenue");
+        SParkingAddress  = i.getStringExtra ("ParkingAddress");
+        SParkingEndTime  = i.getStringExtra ("ParkingEndTime");
         SParkingDuration = i.getStringExtra("ParkingDuration");
+        RawRate          = i.getStringExtra("ParkingRawRate");
 
-        SVenueName = findViewById(R.id.ConfirmVenueName);
-        SVenueAddress = findViewById(R.id.ConfirmVenueAddress);
-        SVenueDate = findViewById(R.id.ConfirmDate);
-        SVenueDuration = findViewById(R.id.ConfirmDuration);
-        SVenueTime = findViewById(R.id.ConfirmTime);
-        SVenueCost = findViewById(R.id.GrandTotal);
+        SVenueName = findViewById(R.id.SummaryVenueName);
+        SVenueAddress = findViewById(R.id.SummaryVenueAddress);
+        SVenueDate = findViewById(R.id.SummaryDate);
+        SVenueDuration = findViewById(R.id.SummaryDuration);
+        SVenueTime = findViewById(R.id.SummaryTime);
+        SVenueCost = findViewById(R.id.SummaryGrandTotal);
         ConfirmButton = findViewById(R.id.ConfirmtoBook);
 
         SVenueName.setText(SParkingVenue);
@@ -46,14 +45,20 @@ public class BookingSummary extends AppCompatActivity {
         ConfirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), ConfirmedBooking.class));
+
+                Intent i2 = new Intent(getApplicationContext(), ConfirmedBooking.class);
+                i2.putExtra("ParkingTime2",SParkingTime);
+                i2.putExtra("ParkingDate2",SParkingDate);
+                i2.putExtra("ParkingCost2", SParkingCost );
+                i2.putExtra("ParkingVenue2",SParkingVenue);
+                i2.putExtra("ParkingAddress2",SParkingAddress);
+                i2.putExtra("ParkingEndTime2",SParkingEndTime);
+                i2.putExtra("ParkingDuration2",SParkingDuration);
+                i2.putExtra("RawRate2", RawRate);
+                startActivity(i2);
             }
         });
         System.out.println("Parking cost "+SParkingCost);
-//        System.out.println("Parking Date "+SParkingDate );
-//        System.out.println("Parking Time "+SParkingTime);
-//        System.out.println("Parking Venue "+SParkingVenue);
-//        System.out.println("Parking Address "+SParkingAddress);
-//        System.out.println("Parking Address "+SParkingEndTime);
+
     }
 }

@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/ConfirmVenueName"
+        android:id="@+id/SummaryVenueName"
         android:layout_width="219dp"
         android:layout_height="34dp"
         android:layout_marginStart="24dp"
@@ -48,10 +48,10 @@
         android:textColor="#0D1723"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ConfirmVenueAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/SummaryVenueAddress" />
 
     <TextView
-        android:id="@+id/ConfirmVenueAddress"
+        android:id="@+id/SummaryVenueAddress"
         android:layout_width="373dp"
         android:layout_height="45dp"
         android:layout_marginStart="24dp"
@@ -59,10 +59,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ConfirmVenueName" />
+        app:layout_constraintTop_toBottomOf="@+id/SummaryVenueName" />
 
     <TextView
-        android:id="@+id/ConfirmDate"
+        android:id="@+id/SummaryDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -84,10 +84,10 @@
         android:textColor="#0D1723"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ConfirmDate" />
+        app:layout_constraintTop_toBottomOf="@+id/SummaryDate" />
 
     <TextView
-        android:id="@+id/ConfirmDuration"
+        android:id="@+id/SummaryDuration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -110,10 +110,10 @@
         android:textColor="#0D1723"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ConfirmDuration" />
+        app:layout_constraintTop_toBottomOf="@+id/SummaryDuration" />
 
     <TextView
-        android:id="@+id/ConfirmTime"
+        android:id="@+id/SummaryTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -135,10 +135,10 @@
         android:textColor="#0D1723"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ConfirmTime" />
+        app:layout_constraintTop_toBottomOf="@+id/SummaryTime" />
 
     <TextView
-        android:id="@+id/GrandTotal"
+        android:id="@+id/SummaryGrandTotal"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
         android:layout_marginTop="32dp"
@@ -148,7 +148,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.128"
         app:layout_constraintStart_toEndOf="@+id/textView20"
-        app:layout_constraintTop_toBottomOf="@+id/ConfirmTime" />
+        app:layout_constraintTop_toBottomOf="@+id/SummaryTime" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/ConfirmtoBook"
@@ -162,6 +162,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/GrandTotal" />
+        app:layout_constraintTop_toBottomOf="@+id/SummaryGrandTotal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

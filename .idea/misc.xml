@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_booking_page.xml" value="0.5714285714285714" />
         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_booking_summary.xml" value="0.7828571428571428" />
+        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_confirmed_booking.xml" value="1.0" />
         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_dummy.xml" value="0.2540983606557377" />
         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_login.xml" value="0.2540983606557377" />
         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
