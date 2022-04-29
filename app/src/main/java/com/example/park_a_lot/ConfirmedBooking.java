@@ -51,13 +51,6 @@ public class ConfirmedBooking extends AppCompatActivity {
         CCGst = findViewById(R.id.CGSTRate);
         CSGst = findViewById(R.id.SGSTRate);
 
-//        System.out.println(CParkingCost);
-//        System.out.println(CParkingTime);
-//        System.out.println( CParkingDate);
-//        System.out.println(CParkingVenue);
-//        System.out.println(CParkingAddress);
-//        System.out.println(CParkingEndTime);
-//        System.out.println(CParkingDuration);
 
         CVenueName.setText(CParkingVenue);
         CVenueAddress.setText(CParkingAddress);
@@ -74,7 +67,6 @@ public class ConfirmedBooking extends AppCompatActivity {
         CSGst.setText(CGST+ "");
 
 
-
         BackToHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,5 +75,4 @@ public class ConfirmedBooking extends AppCompatActivity {
             }
         });
     }
-
 }

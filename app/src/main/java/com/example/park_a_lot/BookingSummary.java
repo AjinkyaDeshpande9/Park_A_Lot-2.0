@@ -1,5 +1,6 @@
 package com.example.park_a_lot;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,17 +10,23 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
 public class BookingSummary extends AppCompatActivity {
-    String SParkingCost,SParkingTime, SParkingDate,SParkingVenue,SParkingAddress,SParkingEndTime,SParkingDuration, RawRate, ParkingLotNo,getslots;
+    String SParkingCost,SParkingTime, SParkingDate,SParkingVenue,SParkingAddress,SParkingEndTime,SParkingDuration, RawRate, ParkingLotNo,getslots,Rand, Userid;
     TextView SVenueName,SVenueAddress,SVenueDate, SVenueDuration,SVenueTime, SVenueCost;
     Button ConfirmButton;
     DatabaseReference databaseReference =
+            FirebaseDatabase.getInstance().getReferenceFromUrl("https://parkalot-b98ef-default-rtdb.firebaseio.com/");
+    DatabaseReference databaseReference1 =
             FirebaseDatabase.getInstance().getReferenceFromUrl("https://parkalot-b98ef-default-rtdb.firebaseio.com/");
 
     @Override
@@ -40,6 +47,8 @@ public class BookingSummary extends AppCompatActivity {
         RawRate          = i.getStringExtra("ParkingRawRate");
         ParkingLotNo     = i.getStringExtra("ParkingLotNo");
         getslots         =i.getStringExtra("AvailableSlots");
+        Userid           =i.getStringExtra("UserId4");
+        System.out.println("This is user id:"+ Userid);
 
 
         SVenueName = findViewById(R.id.SummaryVenueName);
@@ -70,8 +79,6 @@ public class BookingSummary extends AppCompatActivity {
                 i2.putExtra("ParkingEndTime2",SParkingEndTime);
                 i2.putExtra("ParkingDuration2",SParkingDuration);
                 i2.putExtra("RawRate2", RawRate);
-                startActivity(i2);
-
                 databaseReference = FirebaseDatabase.getInstance().getReference().child("Venue");
                 int plotno = (int)(Integer.valueOf(getslots))-1;
                 HashMap hashMap = new HashMap();
@@ -79,10 +86,37 @@ public class BookingSummary extends AppCompatActivity {
 
                 databaseReference.child(ParkingLotNo).updateChildren(hashMap);
 
-
+                getBookingId();
+                startActivity(i2);
             }
         });
-        System.out.println("Parking cost "+SParkingCost);
 
     }
+
+    private void getBookingId() {
+        long number = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
+        Rand = String.format("%10d", number);
+        storeBookingData();
+    }
+
+    private void storeBookingData() {
+        databaseReference.child("Bookings").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.hasChild(Rand)) {
+                    getBookingId();
+                }
+                else{
+                    FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
+                    DatabaseReference reference = rootNode.getReference("Bookings");
+                    UserHelperClass1 addNewBooking = new UserHelperClass1(SParkingCost,SParkingDate,SParkingTime ,ParkingLotNo ,SParkingDuration,Userid);
+                    reference.child(Rand).setValue(addNewBooking);
+                    }
+
+    }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
 }
+    }

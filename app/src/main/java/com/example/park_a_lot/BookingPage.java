@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class BookingPage extends AppCompatActivity {
     Button parkingbookbtn1, parkingbookbtn2, parkingbookbtn3, parkingbookbtn4;
-    String ParkingLotNo;
+    String ParkingLotNo, UserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,8 @@ public class BookingPage extends AppCompatActivity {
         parkingbookbtn2 = findViewById(R.id.parkingBookbtn2);
         parkingbookbtn3 = findViewById(R.id.parkingBookbtn3);
         parkingbookbtn4 = findViewById(R.id.parkingBookbtn4);
-
-
+        Intent i = getIntent();
+        UserId     = i.getStringExtra("UserId2");
 
         parkingbookbtn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +34,7 @@ public class BookingPage extends AppCompatActivity {
                 ParkingLotNo ="0001";
                 Intent i = new Intent(getApplicationContext(), ParkingLot.class);
                 i.putExtra("ParkingLotid",ParkingLotNo);
+                i.putExtra("UserId3",UserId);
                 startActivity(i);
             }
         });
@@ -44,6 +45,7 @@ public class BookingPage extends AppCompatActivity {
                 ParkingLotNo ="0002";
                 Intent i = new Intent(getApplicationContext(), ParkingLot.class);
                 i.putExtra("ParkingLotid",ParkingLotNo);
+                i.putExtra("UserId3",UserId);
                 startActivity(i);
             }
         });
@@ -54,6 +56,7 @@ public class BookingPage extends AppCompatActivity {
                 ParkingLotNo ="0003";
                 Intent i = new Intent(getApplicationContext(), ParkingLot.class);
                 i.putExtra("ParkingLotid",ParkingLotNo);
+                i.putExtra("UserId3",UserId);
                 startActivity(i);
             }
         });
@@ -64,6 +67,7 @@ public class BookingPage extends AppCompatActivity {
                 ParkingLotNo ="0004";
                 Intent i = new Intent(getApplicationContext(), ParkingLot.class);
                 i.putExtra("ParkingLotid",ParkingLotNo);
+                i.putExtra("UserId3",UserId);
                 startActivity(i);
             }
         });

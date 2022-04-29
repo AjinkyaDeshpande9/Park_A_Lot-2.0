@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.park_a_lot.ui.home.HomeFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -68,19 +69,14 @@ public class NavBar extends AppCompatActivity {
         Profilevectype =  i.getStringExtra("ProfileVectype");
         ProfilePassword =  i.getStringExtra("ProfilePassword");
 
+
+// set Fragmentclass Arguments
         System.out.println(ProfileEmail);
         System.out.println(ProfilePhone);
         System.out.println(ProfileName);
         System.out.println(ProfileVecnumber);
         System.out.println(Profilevectype);
         System.out.println(ProfilePassword);
-
-
-
-       // NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-       // VariableProfileName= navigationView.getHeaderView(0).findViewById(R.id.navheadername);
-      //  View headerLayout = navigationView.inflateHeaderView(R.layout.nav_header_nav_bar);
-        //VariableProfileName.setText(ProfileName);
     }
 
     @Override
@@ -109,5 +105,8 @@ public class NavBar extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_nav_bar);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+    public String GetUserId(){
+        return ProfilePhone;
     }
 }
