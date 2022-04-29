@@ -38,7 +38,7 @@ public class ParkingLot extends AppCompatActivity {
     TextView Pavail, Prate,Padd,Pname;
     ImageView Pimage;
     int hour, minute, Pcost,calrate, endtimecal, RawRate;
-    String ParkingLotNo,Pdate,Ptime,getVenueName,getVenueAddress,PendTime,PDuration,getrate;
+    String ParkingLotNo,Pdate,Ptime,getVenueName,getVenueAddress,PendTime,PDuration,getrate, getRadioId;
     RadioGroup radioGroup;
     RadioButton radioButton;
 
@@ -209,8 +209,10 @@ public class ParkingLot extends AppCompatActivity {
             public void onClick(View v) {
                 int radioId = radioGroup.getCheckedRadioButtonId();
                 radioButton = findViewById(radioId);
-                switch(radioId) {
-                    case 2131362351:
+                getRadioId = radioButton.getText().toString();
+
+                switch(getRadioId) {
+                    case "1 Hour":
                         Pcost = (int) ((calrate)+ (0.18 * calrate));
                         RawRate = calrate*1;
                         PDuration ="1 Hour";
@@ -220,7 +222,7 @@ public class ParkingLot extends AppCompatActivity {
                         }
                         PendTime= String.format(Locale.getDefault(), "%02d:%02d",endtimecal, minute);
                         break;
-                    case 2131362352:
+                    case "3 Hours":
                         Pcost = (int) (3*((calrate)+ (0.18 * calrate)));
                         RawRate = calrate*3;
                         PDuration ="3 Hours";
@@ -230,7 +232,7 @@ public class ParkingLot extends AppCompatActivity {
                         }
                         PendTime= String.format(Locale.getDefault(), "%02d:%02d",endtimecal, minute);
                         break;
-                    case 2131362353:
+                    case "5 Hours":
                         Pcost = (int) (5*((calrate)+ (0.18 * calrate)));
                         RawRate = calrate*5;
                         PDuration ="5 Hours";
@@ -253,6 +255,7 @@ public class ParkingLot extends AppCompatActivity {
                 i.putExtra("ParkingAddress",getVenueAddress);
                 i.putExtra("ParkingEndTime", PendTime);
                 i.putExtra("ParkingDuration", PDuration);
+                System.out.println("Parking duration "+PDuration);
                 i.putExtra("ParkingRawRate",StringRawRate);
                 startActivity(i);
             }
