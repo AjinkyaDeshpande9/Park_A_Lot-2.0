@@ -6,12 +6,12 @@
         <type value="RUNNING_DEVICE_TARGET" />
         <deviceKey>
           <Key>
-            <type value="SERIAL_NUMBER" />
-            <value value="8c081c18" />
+            <type value="VIRTUAL_DEVICE_PATH" />
+            <value value="C:\Users\benso\.android\avd\Test_device_5.7inch_screen.avd" />
           </Key>
         </deviceKey>
       </Target>
     </runningDeviceTargetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2022-04-29T18:59:50.785347900Z" />
+    <timeTargetWasSelectedWithDropDown value="2022-04-29T19:08:44.818164200Z" />
   </component>
 </project>

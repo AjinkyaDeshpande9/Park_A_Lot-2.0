@@ -197,8 +197,6 @@ public class ParkingLot extends AppCompatActivity {
            Pname.setText(getVenueName);
            Prate.setText("₹ "+getrate + "/Hr");
            Pavail.setText(getslots + " Slots Available");
-
-
         }
         @Override
         public void onCancelled(@NonNull DatabaseError error) {

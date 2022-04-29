@@ -45,7 +45,7 @@ public class BookingSummary extends AppCompatActivity {
         SVenueDate.setText(SParkingDate);
         SVenueDuration.setText(SParkingDuration);
         SVenueTime.setText(SParkingTime);
-        SVenueCost.setText(SParkingCost);
+        SVenueCost.setText("₹ " +SParkingCost);
 
         ConfirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
