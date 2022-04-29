@@ -30,7 +30,7 @@ public class ParkingLot extends AppCompatActivity {
             FirebaseDatabase.getInstance().getReferenceFromUrl("https://parkalot-b98ef-default-rtdb.firebaseio.com/");
 
     private DatePickerDialog datePickerDialog;
-    private Button dateButton, timeButton;
+    private Button dateButton, timeButton, ProceedToSummary;
     TextView Pavail, Prate,Padd,Pname;
     ImageView Pimage;
     int hour, minute;
@@ -51,6 +51,7 @@ public class ParkingLot extends AppCompatActivity {
         Padd = findViewById(R.id.VenueAddress);
         Pname = findViewById(R.id.VenueName);
         Pimage = findViewById(R.id.VenueImage);
+        ProceedToSummary = findViewById(R.id.ProceedtoSummary);
 
         Intent i = getIntent();
         ParkingLotNo = i.getStringExtra("ParkingLotid");
@@ -195,6 +196,13 @@ public class ParkingLot extends AppCompatActivity {
         public void onCancelled(@NonNull DatabaseError error) {
         }
     });
+        ProceedToSummary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), BookingSummary.class));
+            }
+        });
 }
+
 
 }

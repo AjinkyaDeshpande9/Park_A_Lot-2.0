@@ -90,7 +90,7 @@
         app:srcCompat="@drawable/cashicon" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/ConfirmTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -116,7 +116,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+        app:layout_constraintTop_toBottomOf="@+id/ConfirmTime" />
 
     <TextView
         android:id="@+id/textView20"
@@ -203,7 +203,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button2"
+        android:id="@+id/ProceedtoSummary"
         android:layout_width="148dp"
         android:layout_height="51dp"
         android:layout_marginTop="20dp"
