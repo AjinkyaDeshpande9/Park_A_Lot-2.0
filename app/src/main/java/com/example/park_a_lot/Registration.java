@@ -78,8 +78,16 @@ public class Registration extends AppCompatActivity {
                 }
 
                 else {
-                    if (userPassword.equals(userConfirmpassword) && userPassword.length() > 6) {
-                        //If Everything is in constraints we initiate the process of adding this user
+                    if (TextUtils.isEmpty(userVecnumber)) {
+                        regVecnumber.setError("Vehicle Number is Required.");
+                        Toast.makeText(Registration.this, "Vehicle Number Not entered!", Toast.LENGTH_LONG).show();
+                    }
+                    else if(userVecnumber.length()!=10){
+                        regVecnumber.setError("Enter a valid number.");
+                        Toast.makeText(Registration.this, "Vehicle number not correct!", Toast.LENGTH_LONG).show();
+                    }
+
+                    else if (userPassword.equals(userConfirmpassword) && userPassword.length() > 6) {
                         storeNewUsersData();
                         startActivity(new Intent(Registration.this, Login.class));
                     }
@@ -103,8 +111,6 @@ public class Registration extends AppCompatActivity {
 
             }
         });
-
-
     }
 //Storing Users in Firebase
     private void storeNewUsersData() {
