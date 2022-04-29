@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -33,9 +35,10 @@ public class ParkingLot extends AppCompatActivity {
     private Button dateButton, timeButton, ProceedToSummary;
     TextView Pavail, Prate,Padd,Pname;
     ImageView Pimage;
-    int hour, minute;
-    String ParkingLotNo;
-
+    int hour, minute, Pcost,calrate, endtimecal;
+    String ParkingLotNo,Pdate,Ptime,getVenueName,getVenueAddress,PendTime,PDuration;
+    RadioGroup radioGroup;
+    RadioButton radioButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +55,10 @@ public class ParkingLot extends AppCompatActivity {
         Pname = findViewById(R.id.VenueName);
         Pimage = findViewById(R.id.VenueImage);
         ProceedToSummary = findViewById(R.id.ProceedtoSummary);
+        radioGroup= findViewById(R.id.radioGroup2);
 
         Intent i = getIntent();
         ParkingLotNo = i.getStringExtra("ParkingLotid");
-        System.out.println(ParkingLotNo);
         getData();
     }
 
@@ -78,8 +81,8 @@ public class ParkingLot extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day)
             {
                 month = month + 1;
-                String date = makeDateString(day, month, year);
-                dateButton.setText(date);
+                 Pdate = makeDateString(day, month, year);
+                dateButton.setText(Pdate);
             }
         };
 
@@ -145,7 +148,8 @@ public class ParkingLot extends AppCompatActivity {
             {
                 hour = selectedHour;
                 minute = selectedMinute;
-                timeButton.setText(String.format(Locale.getDefault(), "%02d:%02d",hour, minute));
+                Ptime = String.format(Locale.getDefault(), "%02d:%02d",hour, minute);
+                timeButton.setText(Ptime);
             }
         };
 
@@ -177,14 +181,13 @@ public class ParkingLot extends AppCompatActivity {
 
             }
 
-
            Long getAvailableSlots = snapshot.child(ParkingLotNo).child("Vavail").getValue(Long.class);
-           String getVenueAddress = snapshot.child(ParkingLotNo).child("Vadd").getValue(String.class);
-           String getVenueName = snapshot.child(ParkingLotNo).child("Vname").getValue(String.class);
+           getVenueAddress = snapshot.child(ParkingLotNo).child("Vadd").getValue(String.class);
+           getVenueName = snapshot.child(ParkingLotNo).child("Vname").getValue(String.class);
            Long getVenueRate = snapshot.child(ParkingLotNo).child("Vrate").getValue(Long.class);
            String getrate = Long.toString(getVenueRate);
            String getslots = Long.toString(getAvailableSlots);
-
+           calrate = Integer.valueOf(getrate);
            Padd.setText(getVenueAddress);
            Pname.setText(getVenueName);
            Prate.setText("₹ "+getrate + "/Hr");
@@ -199,10 +202,50 @@ public class ParkingLot extends AppCompatActivity {
         ProceedToSummary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), BookingSummary.class));
+                int radioId = radioGroup.getCheckedRadioButtonId();
+                radioButton = findViewById(radioId);
+                switch(radioId) {
+                    case 2131362351:
+                        Pcost = (int) ((calrate)+ (0.18 * calrate));
+                        PDuration ="1 Hour";
+                        endtimecal = hour+1;
+                        if(endtimecal >=24){
+                            endtimecal = endtimecal -24;
+                        }
+                        PendTime= String.format(Locale.getDefault(), "%02d:%02d",endtimecal, minute);
+                        break;
+                    case 2131362352:
+                        Pcost = (int) (3*((calrate)+ (0.18 * calrate)));
+                        PDuration ="3 Hours";
+                        endtimecal = hour+3;
+                        if(endtimecal >=24){
+                            endtimecal = endtimecal -24;
+                        }
+                        PendTime= String.format(Locale.getDefault(), "%02d:%02d",endtimecal, minute);
+                        break;
+                    case 2131362353:
+                        Pcost = (int) (5*((calrate)+ (0.18 * calrate)));
+                        PDuration ="5 Hours";
+                        endtimecal = hour+5;
+                        if(endtimecal >=24){
+                            endtimecal = endtimecal -24;
+                        }
+                        PendTime= String.format(Locale.getDefault(), "%02d:%02d",endtimecal, minute);
+                        break;
+                    default:
+                        Pcost = (int) 200;
+                }
+                String PStringCost = String.valueOf(Pcost);
+                Intent i = new Intent(getApplicationContext(), BookingSummary.class);
+                i.putExtra("ParkingTime",Ptime);
+                i.putExtra("ParkingDate",Pdate);
+                i.putExtra("ParkingCost",PStringCost);
+                i.putExtra("ParkingVenue",getVenueName);
+                i.putExtra("ParkingAddress",getVenueAddress);
+                i.putExtra("ParkingEndTime", PendTime);
+                i.putExtra("ParkingDuration", PDuration);
+                startActivity(i);
             }
         });
 }
-
-
 }
