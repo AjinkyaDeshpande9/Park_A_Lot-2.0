@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/mobile_art" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/MobileText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/VecNumberDash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -39,7 +39,7 @@
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/MobileText" />
 
     <EditText
         android:id="@+id/regmob"
@@ -60,7 +60,7 @@
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/VecNumberDash" />
 
     <EditText
         android:id="@+id/regotp"
@@ -133,10 +133,10 @@
         android:textSize="12dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2" />
+        app:layout_constraintStart_toEndOf="@+id/EmailDash" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/EmailDash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="84dp"

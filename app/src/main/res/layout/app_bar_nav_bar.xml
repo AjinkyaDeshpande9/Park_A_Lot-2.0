@@ -9,14 +9,16 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.ParkALot.AppBarOverlay">
+        android:theme="@style/Theme.ParkALot.AppBarOverlay"
+        android:background="#0D1723">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.ParkALot.PopupOverlay" />
+            app:popupTheme="@style/Theme.ParkALot.PopupOverlay"
+            android:backgroundTint="#0D1723"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 

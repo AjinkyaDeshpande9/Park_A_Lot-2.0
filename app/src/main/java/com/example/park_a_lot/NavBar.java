@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -19,7 +21,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.park_a_lot.databinding.ActivityNavBarBinding;
+import com.example.park_a_lot.databinding.*;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class NavBar extends AppCompatActivity {
@@ -31,6 +33,7 @@ public class NavBar extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         showalluserdata();
         binding = ActivityNavBarBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

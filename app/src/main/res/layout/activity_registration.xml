@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/register_vector" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/MobileText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
@@ -120,7 +120,7 @@
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/MobileText" />
 
     <EditText
         android:id="@+id/regConPassword"
@@ -220,7 +220,7 @@
         android:fontFamily="@font/roboto"
         android:text="Submit"
         android:textColor="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/EmailDash"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
@@ -235,7 +235,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/EmailDash" />
 
     <TextView
         android:id="@+id/regloginHere"
@@ -249,10 +249,10 @@
         android:textSize="12dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2" />
+        app:layout_constraintStart_toEndOf="@+id/EmailDash" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/EmailDash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="84dp"

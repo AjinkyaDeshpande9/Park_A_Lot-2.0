@@ -9,7 +9,7 @@
         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_dummy.xml" value="0.2540983606557377" />
         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_login.xml" value="0.2540983606557377" />
         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
-        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_mobile_registration.xml" value="0.536" />
+        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_mobile_registration.xml" value="0.264" />
         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_nav_bar.xml" value="0.3624454148471616" />
         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_parking_lot.xml" value="0.72" />
         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/activity_parking_lot2.xml" value="0.8106508875739645" />
@@ -20,7 +20,7 @@
         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/fragment_dashboard.xml" value="0.5714285714285714" />
         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/fragment_home.xml" value="0.5714285714285714" />
         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/gradientbackground.xml" value="0.5714285714285714" />
-        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/nav_header_nav_bar.xml" value="0.39009287925696595" />
+        <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/layout/nav_header_nav_bar.xml" value="0.72" />
         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/menu/activity_main_drawer.xml" value="0.536" />
         <entry key="..\:/Computer Engineering/Mini Project/Park-A-Lot/app/src/main/res/menu/nav_bar.xml" value="0.72" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/drawable/aboutus_bg.xml" value="0.1675" />
@@ -51,6 +51,16 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/ParkALot/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Park_A_Lot-2.0/app/src/main/res/layout/activity_booking_summary.xml" value="0.129981884057971" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Park_A_Lot-2.0/app/src/main/res/layout/activity_confirmed_booking.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Park_A_Lot-2.0/app/src/main/res/layout/activity_login.xml" value="0.129981884057971" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Park_A_Lot-2.0/app/src/main/res/layout/activity_mobile_registration.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Park_A_Lot-2.0/app/src/main/res/layout/activity_nav_bar.xml" value="0.33" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Park_A_Lot-2.0/app/src/main/res/layout/activity_parking_lot.xml" value="0.129981884057971" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Park_A_Lot-2.0/app/src/main/res/layout/activity_registration.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Park_A_Lot-2.0/app/src/main/res/layout/app_bar_nav_bar.xml" value="0.129981884057971" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Park_A_Lot-2.0/app/src/main/res/layout/content_nav_bar.xml" value="0.129981884057971" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Park_A_Lot-2.0/app/src/main/res/layout/fragment_aboutus.xml" value="0.129981884057971" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Park_A_Lot-2.0/app/src/main/res/layout/fragment_dashboard.xml" value="0.2" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Park_A_Lot-2.0/app/src/main/res/layout/nav_header_nav_bar.xml" value="0.25" />
       </map>
     </option>
   </component>

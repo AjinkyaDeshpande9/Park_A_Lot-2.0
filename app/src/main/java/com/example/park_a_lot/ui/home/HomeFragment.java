@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.park_a_lot.BookingPage;
 import com.example.park_a_lot.NavBar;
 import com.example.park_a_lot.R;
-import com.example.park_a_lot.databinding.FragmentHomeBinding;
+import com.example.park_a_lot.databinding.*;
 
 public class HomeFragment extends Fragment {
 
@@ -35,6 +35,7 @@ public class HomeFragment extends Fragment {
 //        return root;
         NavBar activity = (NavBar) getActivity();
         String UserId = activity.GetUserId();
+
 
         View view = inflater.inflate(R.layout.fragment_home,container ,false);
         Button btnOpen = (Button) view.findViewById(R.id.btnOpen);
