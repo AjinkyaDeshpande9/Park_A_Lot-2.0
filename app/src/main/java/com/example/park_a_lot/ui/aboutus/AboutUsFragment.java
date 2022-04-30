@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import com.example.park_a_lot.databinding.FragmentAboutusBinding;
+import com.example.park_a_lot.databinding.*;
 
 public class AboutUsFragment extends Fragment {
 

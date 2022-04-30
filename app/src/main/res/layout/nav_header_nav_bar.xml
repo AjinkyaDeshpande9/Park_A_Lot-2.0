@@ -24,20 +24,4 @@
         android:textSize="34sp"
         android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="106dp"
-        android:layout_height="100dp"
-        android:contentDescription="@string/nav_header_desc"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@drawable/profile" />
-
-    <TextView
-        android:id="@+id/navheadername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="AJINKYA"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
 </LinearLayout>
