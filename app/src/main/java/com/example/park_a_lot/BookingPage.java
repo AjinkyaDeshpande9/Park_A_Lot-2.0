@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class BookingPage extends AppCompatActivity {
     Button parkingbookbtn1, parkingbookbtn2, parkingbookbtn3, parkingbookbtn4;
-    String ParkingLotNo, UserId;
+    String ParkingLotNo, UserId, EmailId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,8 @@ public class BookingPage extends AppCompatActivity {
         parkingbookbtn4 = findViewById(R.id.parkingBookbtn4);
         Intent i = getIntent();
         UserId     = i.getStringExtra("UserId2");
+        EmailId     = i.getStringExtra("EmailId2");
+        System.out.println("this is emai id in booking page "+EmailId);
 
         parkingbookbtn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +37,7 @@ public class BookingPage extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), ParkingLot.class);
                 i.putExtra("ParkingLotid",ParkingLotNo);
                 i.putExtra("UserId3",UserId);
+                i.putExtra("EmailId3",EmailId);
                 startActivity(i);
             }
         });
@@ -46,6 +49,7 @@ public class BookingPage extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), ParkingLot.class);
                 i.putExtra("ParkingLotid",ParkingLotNo);
                 i.putExtra("UserId3",UserId);
+                i.putExtra("EmailId3",EmailId);
                 startActivity(i);
             }
         });
@@ -57,6 +61,7 @@ public class BookingPage extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), ParkingLot.class);
                 i.putExtra("ParkingLotid",ParkingLotNo);
                 i.putExtra("UserId3",UserId);
+                i.putExtra("EmailId3",EmailId);
                 startActivity(i);
             }
         });
@@ -68,6 +73,7 @@ public class BookingPage extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), ParkingLot.class);
                 i.putExtra("ParkingLotid",ParkingLotNo);
                 i.putExtra("UserId3",UserId);
+                i.putExtra("EmailId3",EmailId);
                 startActivity(i);
             }
         });

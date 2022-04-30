@@ -30,7 +30,6 @@ public class NavBar extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityNavBarBinding binding;
     String ProfilePhone, ProfileName, ProfileEmail,ProfilePassword,ProfileVecnumber, Profilevectype;
-    TextView VariableProfileName;
     TextView PName,PEmail,PMobile,PVectype, PVecNumber;
     EditText Ppassword;
     @Override
@@ -60,8 +59,6 @@ public class NavBar extends AppCompatActivity {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_dashboard, R.id.nav_aboutus)
                 .setOpenableLayout(drawer)
@@ -72,7 +69,6 @@ public class NavBar extends AppCompatActivity {
     }
 
     private void showalluserdata() {
-        VariableProfileName = findViewById(R.id.navheadername);
         Intent i = getIntent();
         ProfilePhone = i.getStringExtra("ProfilePhone");
         ProfileEmail =  i.getStringExtra("ProfileEmail");
@@ -134,15 +130,6 @@ public class NavBar extends AppCompatActivity {
     public  String GetVehicleType(){
         return Profilevectype;
     }
-//    public void SetProfileData(){
-//
-//       PName.setText(ProfileName);
-//       PEmail.setText(ProfileEmail);
-//       PMobile.setText(ProfilePhone);
-//       PVectype.setText(Profilevectype);
-//       PVecNumber.setText(ProfileVecnumber);
-//    }
-
 
 }
 

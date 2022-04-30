@@ -35,6 +35,8 @@ public class HomeFragment extends Fragment {
 //        return root;
         NavBar activity = (NavBar) getActivity();
         String UserId = activity.GetUserId();
+        String EmailId = activity.GetEmailId();
+        System.out.println("this is emai id in Home frag"+EmailId);
 
 
         View view = inflater.inflate(R.layout.fragment_home,container ,false);
@@ -44,6 +46,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(), BookingPage.class);
                 i.putExtra("UserId2",UserId);
+                i.putExtra("EmailId2",EmailId);
                 startActivity(i);
             }
         });

@@ -38,7 +38,7 @@ public class ParkingLot extends AppCompatActivity {
     TextView Pavail, Prate,Padd,Pname;
     ImageView Pimage;
     int hour, minute, Pcost,calrate, endtimecal, RawRate;
-    String ParkingLotNo,Pdate,Ptime,getVenueName,getVenueAddress,PendTime,PDuration,getrate, getRadioId,getslots, UserId;
+    String ParkingLotNo,Pdate,Ptime,getVenueName,getVenueAddress,PendTime,PDuration,getrate, getRadioId,getslots, UserId, EmailId;
     RadioGroup radioGroup;
     RadioButton radioButton;
 
@@ -65,6 +65,7 @@ public class ParkingLot extends AppCompatActivity {
         Intent i = getIntent();
         ParkingLotNo = i.getStringExtra("ParkingLotid");
         UserId = i.getStringExtra("UserId3");
+        EmailId = i.getStringExtra("EmailId3");
         getData();
     }
 
@@ -258,6 +259,7 @@ public class ParkingLot extends AppCompatActivity {
                 i.putExtra("ParkingLotNo",ParkingLotNo);
                 i.putExtra("AvailableSlots",getslots);
                 i.putExtra("UserId4",UserId);
+                i.putExtra("EmailId4",EmailId);
                 startActivity(i);
             }
         });

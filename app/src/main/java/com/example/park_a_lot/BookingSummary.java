@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 public class BookingSummary extends AppCompatActivity {
-    String SParkingCost,SParkingTime, SParkingDate,SParkingVenue,SParkingAddress,SParkingEndTime,SParkingDuration, RawRate, ParkingLotNo,getslots,Rand, Userid;
+    String SParkingCost,SParkingTime, SParkingDate,SParkingVenue,SParkingAddress,SParkingEndTime,SParkingDuration, RawRate, ParkingLotNo,getslots,Rand, Userid,EmailId;
     TextView SVenueName,SVenueAddress,SVenueDate, SVenueDuration,SVenueTime, SVenueCost;
     Button ConfirmButton;
     DatabaseReference databaseReference =
@@ -46,6 +46,9 @@ public class BookingSummary extends AppCompatActivity {
         ParkingLotNo     = i.getStringExtra("ParkingLotNo");
         getslots         =i.getStringExtra("AvailableSlots");
         Userid           =i.getStringExtra("UserId4");
+        EmailId          =i.getStringExtra("EmailId4");
+        System.out.println("this is emai id in booking summary"+EmailId);
+
         System.out.println("This is user id:"+ Userid);
 
 
@@ -77,6 +80,8 @@ public class BookingSummary extends AppCompatActivity {
                 i2.putExtra("ParkingEndTime2",SParkingEndTime);
                 i2.putExtra("ParkingDuration2",SParkingDuration);
                 i2.putExtra("RawRate2", RawRate);
+                i2.putExtra("EmailId5",EmailId);
+//                System.out.println("Random number in summary: "+ Rand);
                 databaseReference = FirebaseDatabase.getInstance().getReference().child("Venue");
                 int plotno = (int)(Integer.valueOf(getslots))-1;
                 HashMap hashMap = new HashMap();
@@ -85,6 +90,7 @@ public class BookingSummary extends AppCompatActivity {
                 databaseReference.child(ParkingLotNo).updateChildren(hashMap);
 
                 getBookingId();
+                i2.putExtra("QRcodenumber",Rand);
                 startActivity(i2);
             }
         });
