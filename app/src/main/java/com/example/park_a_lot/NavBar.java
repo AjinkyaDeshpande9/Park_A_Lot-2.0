@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.park_a_lot.ui.home.HomeFragment;
@@ -30,6 +31,8 @@ public class NavBar extends AppCompatActivity {
     private ActivityNavBarBinding binding;
     String ProfilePhone, ProfileName, ProfileEmail,ProfilePassword,ProfileVecnumber, Profilevectype;
     TextView VariableProfileName;
+    TextView PName,PEmail,PMobile,PVectype, PVecNumber;
+    EditText Ppassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,12 @@ public class NavBar extends AppCompatActivity {
         showalluserdata();
         binding = ActivityNavBarBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        PName = findViewById(R.id.NameDash);
+        PEmail = findViewById(R.id.EmailDash);
+        PMobile = findViewById(R.id.MobileNumberDash);
+        PVectype = findViewById(R.id.NameDash);
+        PVecNumber = findViewById(R.id.NameDash);
 
         setSupportActionBar(binding.appBarNavBar.toolbar);
         binding.appBarNavBar.fab.setOnClickListener(new View.OnClickListener() {
@@ -112,4 +121,28 @@ public class NavBar extends AppCompatActivity {
     public String GetUserId(){
         return ProfilePhone;
     }
+
+    public  String GetEmailId(){
+        return ProfileEmail;
+    }
+    public  String VehicleNumber(){
+        return ProfileVecnumber;
+    }
+    public  String GetUserName(){
+        return ProfileName;
+    }
+    public  String GetVehicleType(){
+        return Profilevectype;
+    }
+//    public void SetProfileData(){
+//
+//       PName.setText(ProfileName);
+//       PEmail.setText(ProfileEmail);
+//       PMobile.setText(ProfilePhone);
+//       PVectype.setText(Profilevectype);
+//       PVecNumber.setText(ProfileVecnumber);
+//    }
+
+
 }
+

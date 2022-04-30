@@ -26,8 +26,6 @@ public class BookingSummary extends AppCompatActivity {
     Button ConfirmButton;
     DatabaseReference databaseReference =
             FirebaseDatabase.getInstance().getReferenceFromUrl("https://parkalot-b98ef-default-rtdb.firebaseio.com/");
-    DatabaseReference databaseReference1 =
-            FirebaseDatabase.getInstance().getReferenceFromUrl("https://parkalot-b98ef-default-rtdb.firebaseio.com/");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
